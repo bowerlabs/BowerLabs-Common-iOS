@@ -7,44 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2FE12C16AEDCFB00F58ABB /* BLBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE11816AEDCFB00F58ABB /* BLBlockOperation.m */; };
+		3F2FE12D16AEDCFB00F58ABB /* BLOperationHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE11A16AEDCFB00F58ABB /* BLOperationHelpers.m */; };
+		3F2FE12E16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE11D16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.m */; };
+		3F2FE12F16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE11F16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.m */; };
+		3F2FE13016AEDCFB00F58ABB /* NSObject+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE12116AEDCFB00F58ABB /* NSObject+BowerLabsFoundation.m */; };
+		3F2FE13116AEDCFB00F58ABB /* NSOperationQueue+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE12316AEDCFB00F58ABB /* NSOperationQueue+BowerLabsFoundation.m */; };
+		3F2FE13216AEDCFB00F58ABB /* NSString+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE12516AEDCFB00F58ABB /* NSString+BowerLabsFoundation.m */; };
+		3F2FE13316AEDCFB00F58ABB /* BowerLabsFoundationTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F2FE12716AEDCFB00F58ABB /* BowerLabsFoundationTests-Info.plist */; };
+		3F2FE13416AEDCFB00F58ABB /* BowerLabsFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE12916AEDCFB00F58ABB /* BowerLabsFoundationTests.m */; };
+		3F2FE13516AEDCFB00F58ABB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F2FE12A16AEDCFB00F58ABB /* InfoPlist.strings */; };
 		3F2FFAB616AE2B68008BCEA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFAB516AE2B68008BCEA7 /* SenTestingKit.framework */; };
 		3F2FFAB816AE2B68008BCEA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFA9916AE2B68008BCEA7 /* Foundation.framework */; };
-		3F2FFAC016AE2B68008BCEA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F2FFABE16AE2B68008BCEA7 /* InfoPlist.strings */; };
-		3F2FFAC316AE2B68008BCEA7 /* BowerLabsFoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFAC216AE2B68008BCEA7 /* BowerLabsFoundationTests.m */; };
 		3F2FFB0D16AE3289008BCEA7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFAD116AE2BBA008BCEA7 /* CoreFoundation.framework */; };
-		3F2FFB2816AE41A1008BCEA7 /* BLBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFB1A16AE41A1008BCEA7 /* BLBlockOperation.m */; };
-		3F2FFB2916AE41A1008BCEA7 /* BLOperationHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFB1C16AE41A1008BCEA7 /* BLOperationHelpers.m */; };
-		3F2FFB2A16AE41A1008BCEA7 /* NSArray+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFB1F16AE41A1008BCEA7 /* NSArray+BowerLabsFoundation.m */; };
-		3F2FFB2B16AE41A1008BCEA7 /* NSDate+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFB2116AE41A1008BCEA7 /* NSDate+BowerLabsFoundation.m */; };
-		3F2FFB2C16AE41A1008BCEA7 /* NSObject+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFB2316AE41A1008BCEA7 /* NSObject+BowerLabsFoundation.m */; };
-		3F2FFB2D16AE41A1008BCEA7 /* NSOperationQueue+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFB2516AE41A1008BCEA7 /* NSOperationQueue+BowerLabsFoundation.m */; };
-		3F2FFB2E16AE41A1008BCEA7 /* NSString+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FFB2716AE41A1008BCEA7 /* NSString+BowerLabsFoundation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F2FE11716AEDCFB00F58ABB /* BLBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBlockOperation.h; sourceTree = "<group>"; };
+		3F2FE11816AEDCFB00F58ABB /* BLBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBlockOperation.m; sourceTree = "<group>"; };
+		3F2FE11916AEDCFB00F58ABB /* BLOperationHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOperationHelpers.h; sourceTree = "<group>"; };
+		3F2FE11A16AEDCFB00F58ABB /* BLOperationHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLOperationHelpers.m; sourceTree = "<group>"; };
+		3F2FE11B16AEDCFB00F58ABB /* BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BowerLabsFoundation.h; sourceTree = "<group>"; };
+		3F2FE11C16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BowerLabsFoundation.h"; sourceTree = "<group>"; };
+		3F2FE11D16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BowerLabsFoundation.m"; sourceTree = "<group>"; };
+		3F2FE11E16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BowerLabsFoundation.h"; sourceTree = "<group>"; };
+		3F2FE11F16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BowerLabsFoundation.m"; sourceTree = "<group>"; };
+		3F2FE12016AEDCFB00F58ABB /* NSObject+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BowerLabsFoundation.h"; sourceTree = "<group>"; };
+		3F2FE12116AEDCFB00F58ABB /* NSObject+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BowerLabsFoundation.m"; sourceTree = "<group>"; };
+		3F2FE12216AEDCFB00F58ABB /* NSOperationQueue+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+BowerLabsFoundation.h"; sourceTree = "<group>"; };
+		3F2FE12316AEDCFB00F58ABB /* NSOperationQueue+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+BowerLabsFoundation.m"; sourceTree = "<group>"; };
+		3F2FE12416AEDCFB00F58ABB /* NSString+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BowerLabsFoundation.h"; sourceTree = "<group>"; };
+		3F2FE12516AEDCFB00F58ABB /* NSString+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BowerLabsFoundation.m"; sourceTree = "<group>"; };
+		3F2FE12716AEDCFB00F58ABB /* BowerLabsFoundationTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BowerLabsFoundationTests-Info.plist"; sourceTree = "<group>"; };
+		3F2FE12816AEDCFB00F58ABB /* BowerLabsFoundationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BowerLabsFoundationTests.h; sourceTree = "<group>"; };
+		3F2FE12916AEDCFB00F58ABB /* BowerLabsFoundationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BowerLabsFoundationTests.m; sourceTree = "<group>"; };
+		3F2FE12B16AEDCFB00F58ABB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F2FFA9916AE2B68008BCEA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F2FFAB416AE2B68008BCEA7 /* BowerLabsFoundationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowerLabsFoundationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2FFAB516AE2B68008BCEA7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		3F2FFABD16AE2B68008BCEA7 /* BowerLabsFoundationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BowerLabsFoundationTests-Info.plist"; sourceTree = "<group>"; };
-		3F2FFABF16AE2B68008BCEA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3F2FFAC116AE2B68008BCEA7 /* BowerLabsFoundationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BowerLabsFoundationTests.h; sourceTree = "<group>"; };
-		3F2FFAC216AE2B68008BCEA7 /* BowerLabsFoundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BowerLabsFoundationTests.m; sourceTree = "<group>"; };
 		3F2FFAD116AE2BBA008BCEA7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		3F2FFB1916AE41A1008BCEA7 /* BLBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBlockOperation.h; sourceTree = "<group>"; };
-		3F2FFB1A16AE41A1008BCEA7 /* BLBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBlockOperation.m; sourceTree = "<group>"; };
-		3F2FFB1B16AE41A1008BCEA7 /* BLOperationHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOperationHelpers.h; sourceTree = "<group>"; };
-		3F2FFB1C16AE41A1008BCEA7 /* BLOperationHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLOperationHelpers.m; sourceTree = "<group>"; };
-		3F2FFB1D16AE41A1008BCEA7 /* BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BowerLabsFoundation.h; sourceTree = "<group>"; };
-		3F2FFB1E16AE41A1008BCEA7 /* NSArray+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BowerLabsFoundation.h"; sourceTree = "<group>"; };
-		3F2FFB1F16AE41A1008BCEA7 /* NSArray+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BowerLabsFoundation.m"; sourceTree = "<group>"; };
-		3F2FFB2016AE41A1008BCEA7 /* NSDate+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BowerLabsFoundation.h"; sourceTree = "<group>"; };
-		3F2FFB2116AE41A1008BCEA7 /* NSDate+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BowerLabsFoundation.m"; sourceTree = "<group>"; };
-		3F2FFB2216AE41A1008BCEA7 /* NSObject+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BowerLabsFoundation.h"; sourceTree = "<group>"; };
-		3F2FFB2316AE41A1008BCEA7 /* NSObject+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BowerLabsFoundation.m"; sourceTree = "<group>"; };
-		3F2FFB2416AE41A1008BCEA7 /* NSOperationQueue+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+BowerLabsFoundation.h"; sourceTree = "<group>"; };
-		3F2FFB2516AE41A1008BCEA7 /* NSOperationQueue+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+BowerLabsFoundation.m"; sourceTree = "<group>"; };
-		3F2FFB2616AE41A1008BCEA7 /* NSString+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BowerLabsFoundation.h"; sourceTree = "<group>"; };
-		3F2FFB2716AE41A1008BCEA7 /* NSString+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BowerLabsFoundation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +62,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F2FE11616AEDCFB00F58ABB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3F2FE11716AEDCFB00F58ABB /* BLBlockOperation.h */,
+				3F2FE11816AEDCFB00F58ABB /* BLBlockOperation.m */,
+				3F2FE11916AEDCFB00F58ABB /* BLOperationHelpers.h */,
+				3F2FE11A16AEDCFB00F58ABB /* BLOperationHelpers.m */,
+				3F2FE11B16AEDCFB00F58ABB /* BowerLabsFoundation.h */,
+				3F2FE11C16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.h */,
+				3F2FE11D16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.m */,
+				3F2FE11E16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.h */,
+				3F2FE11F16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.m */,
+				3F2FE12016AEDCFB00F58ABB /* NSObject+BowerLabsFoundation.h */,
+				3F2FE12116AEDCFB00F58ABB /* NSObject+BowerLabsFoundation.m */,
+				3F2FE12216AEDCFB00F58ABB /* NSOperationQueue+BowerLabsFoundation.h */,
+				3F2FE12316AEDCFB00F58ABB /* NSOperationQueue+BowerLabsFoundation.m */,
+				3F2FE12416AEDCFB00F58ABB /* NSString+BowerLabsFoundation.h */,
+				3F2FE12516AEDCFB00F58ABB /* NSString+BowerLabsFoundation.m */,
+			);
+			path = Classes;
+			sourceTree = SOURCE_ROOT;
+		};
+		3F2FE12616AEDCFB00F58ABB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3F2FE12716AEDCFB00F58ABB /* BowerLabsFoundationTests-Info.plist */,
+				3F2FE12816AEDCFB00F58ABB /* BowerLabsFoundationTests.h */,
+				3F2FE12916AEDCFB00F58ABB /* BowerLabsFoundationTests.m */,
+				3F2FE12A16AEDCFB00F58ABB /* InfoPlist.strings */,
+			);
+			path = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
 		3F2FFA8816AE2B67008BCEA7 = {
 			isa = PBXGroup;
 			children = (
-				3F2FFAD316AE2BBA008BCEA7 /* BowerLabsFoundation */,
-				3F2FFABB16AE2B68008BCEA7 /* BowerLabsFoundationTests */,
+				3F2FE11616AEDCFB00F58ABB /* Classes */,
+				3F2FE12616AEDCFB00F58ABB /* Tests */,
 				3F2FFA9616AE2B68008BCEA7 /* Frameworks */,
 				3F2FFA9416AE2B68008BCEA7 /* Products */,
 			);
@@ -87,55 +121,6 @@
 				3F2FFAB516AE2B68008BCEA7 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3F2FFABB16AE2B68008BCEA7 /* BowerLabsFoundationTests */ = {
-			isa = PBXGroup;
-			children = (
-				3F2FFAC116AE2B68008BCEA7 /* BowerLabsFoundationTests.h */,
-				3F2FFAC216AE2B68008BCEA7 /* BowerLabsFoundationTests.m */,
-				3F2FFABC16AE2B68008BCEA7 /* Supporting Files */,
-			);
-			path = BowerLabsFoundationTests;
-			sourceTree = "<group>";
-		};
-		3F2FFABC16AE2B68008BCEA7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3F2FFABD16AE2B68008BCEA7 /* BowerLabsFoundationTests-Info.plist */,
-				3F2FFABE16AE2B68008BCEA7 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3F2FFAD316AE2BBA008BCEA7 /* BowerLabsFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				3F2FFB1816AE41A1008BCEA7 /* Classes */,
-			);
-			path = BowerLabsFoundation;
-			sourceTree = "<group>";
-		};
-		3F2FFB1816AE41A1008BCEA7 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				3F2FFB1916AE41A1008BCEA7 /* BLBlockOperation.h */,
-				3F2FFB1A16AE41A1008BCEA7 /* BLBlockOperation.m */,
-				3F2FFB1B16AE41A1008BCEA7 /* BLOperationHelpers.h */,
-				3F2FFB1C16AE41A1008BCEA7 /* BLOperationHelpers.m */,
-				3F2FFB1D16AE41A1008BCEA7 /* BowerLabsFoundation.h */,
-				3F2FFB1E16AE41A1008BCEA7 /* NSArray+BowerLabsFoundation.h */,
-				3F2FFB1F16AE41A1008BCEA7 /* NSArray+BowerLabsFoundation.m */,
-				3F2FFB2016AE41A1008BCEA7 /* NSDate+BowerLabsFoundation.h */,
-				3F2FFB2116AE41A1008BCEA7 /* NSDate+BowerLabsFoundation.m */,
-				3F2FFB2216AE41A1008BCEA7 /* NSObject+BowerLabsFoundation.h */,
-				3F2FFB2316AE41A1008BCEA7 /* NSObject+BowerLabsFoundation.m */,
-				3F2FFB2416AE41A1008BCEA7 /* NSOperationQueue+BowerLabsFoundation.h */,
-				3F2FFB2516AE41A1008BCEA7 /* NSOperationQueue+BowerLabsFoundation.m */,
-				3F2FFB2616AE41A1008BCEA7 /* NSString+BowerLabsFoundation.h */,
-				3F2FFB2716AE41A1008BCEA7 /* NSString+BowerLabsFoundation.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +176,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F2FFAC016AE2B68008BCEA7 /* InfoPlist.strings in Resources */,
+				3F2FE13316AEDCFB00F58ABB /* BowerLabsFoundationTests-Info.plist in Resources */,
+				3F2FE13516AEDCFB00F58ABB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,24 +204,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F2FFAC316AE2B68008BCEA7 /* BowerLabsFoundationTests.m in Sources */,
-				3F2FFB2816AE41A1008BCEA7 /* BLBlockOperation.m in Sources */,
-				3F2FFB2916AE41A1008BCEA7 /* BLOperationHelpers.m in Sources */,
-				3F2FFB2A16AE41A1008BCEA7 /* NSArray+BowerLabsFoundation.m in Sources */,
-				3F2FFB2B16AE41A1008BCEA7 /* NSDate+BowerLabsFoundation.m in Sources */,
-				3F2FFB2C16AE41A1008BCEA7 /* NSObject+BowerLabsFoundation.m in Sources */,
-				3F2FFB2D16AE41A1008BCEA7 /* NSOperationQueue+BowerLabsFoundation.m in Sources */,
-				3F2FFB2E16AE41A1008BCEA7 /* NSString+BowerLabsFoundation.m in Sources */,
+				3F2FE12C16AEDCFB00F58ABB /* BLBlockOperation.m in Sources */,
+				3F2FE12D16AEDCFB00F58ABB /* BLOperationHelpers.m in Sources */,
+				3F2FE12E16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.m in Sources */,
+				3F2FE12F16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.m in Sources */,
+				3F2FE13016AEDCFB00F58ABB /* NSObject+BowerLabsFoundation.m in Sources */,
+				3F2FE13116AEDCFB00F58ABB /* NSOperationQueue+BowerLabsFoundation.m in Sources */,
+				3F2FE13216AEDCFB00F58ABB /* NSString+BowerLabsFoundation.m in Sources */,
+				3F2FE13416AEDCFB00F58ABB /* BowerLabsFoundationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3F2FFABE16AE2B68008BCEA7 /* InfoPlist.strings */ = {
+		3F2FE12A16AEDCFB00F58ABB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3F2FFABF16AE2B68008BCEA7 /* en */,
+				3F2FE12B16AEDCFB00F58ABB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
