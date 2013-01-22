@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/bowerlabs/BowerLabsFoundation'
   s.author   = { 'Jeremy Bower' => 'jeremy@jeremybower.com' }
   s.source   = { :git    => 'https://github.com/bowerlabs/BowerLabsFoundation.git',
-                 :version => '1.0.0' }
+                 :tag => '1.0.0' }
 
   s.source_files = 'BowerLabsFoundation/Classes'
 
