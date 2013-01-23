@@ -17,10 +17,15 @@
 
 - (void)afterDelay:(NSTimeInterval)delay perform:(void (^)(void))block
 {
+    [self afterDelay:delay queue:[NSOperationQueue mainQueue] perform:block];
+}
+
+- (void)afterDelay:(NSTimeInterval)delay queue:(NSOperationQueue*)queue perform:(void (^)(void))block
+{
     NSOperation* operation = [NSBlockOperation blockOperationWithBlock:block];
-    [[NSOperationQueue mainQueue] performSelector:@selector(addOperation:)
-                                       withObject:operation
-                                       afterDelay:delay];
+    [queue performSelector:@selector(addOperation:)
+                withObject:operation
+                afterDelay:delay];
 }
 
 @end

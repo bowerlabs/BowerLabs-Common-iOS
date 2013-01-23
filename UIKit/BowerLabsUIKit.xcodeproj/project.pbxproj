@@ -21,6 +21,7 @@
 		3F2FFB5D16AE444C008BCEA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFB5C16AE444C008BCEA7 /* SenTestingKit.framework */; };
 		3F2FFB5E16AE444C008BCEA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFB3E16AE444C008BCEA7 /* UIKit.framework */; };
 		3F2FFB5F16AE444C008BCEA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFB4016AE444C008BCEA7 /* Foundation.framework */; };
+		3F988A5A16AF6810006D810D /* BLMarginLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F988A5916AF6810006D810D /* BLMarginLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		3F2FFB4216AE444C008BCEA7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3F2FFB5B16AE444C008BCEA7 /* BowerLabsUIKitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowerLabsUIKitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2FFB5C16AE444C008BCEA7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3F988A5816AF6810006D810D /* BLMarginLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMarginLabel.h; sourceTree = "<group>"; };
+		3F988A5916AF6810006D810D /* BLMarginLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMarginLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				3F2FE13E16AEDDAA00F58ABB /* BLAlertView.m */,
 				3F2FE13F16AEDDAA00F58ABB /* BLButton.h */,
 				3F2FE14016AEDDAA00F58ABB /* BLButton.m */,
+				3F988A5816AF6810006D810D /* BLMarginLabel.h */,
+				3F988A5916AF6810006D810D /* BLMarginLabel.m */,
 				3F2FE14116AEDDAA00F58ABB /* BowerLabsUIKit.h */,
 				3F2FE14216AEDDAA00F58ABB /* UIBarButtonItem+BowerLabsUIKit.h */,
 				3F2FE14316AEDDAA00F58ABB /* UIBarButtonItem+BowerLabsUIKit.m */,
@@ -220,6 +225,7 @@
 				3F2FE15816AEDDAA00F58ABB /* UINavigationBar+BowerLabsUIKit.m in Sources */,
 				3F2FE15916AEDDAA00F58ABB /* UIView+BowerLabsUIKit.m in Sources */,
 				3F2FE15B16AEDDAA00F58ABB /* BowerLabsUIKitTests.m in Sources */,
+				3F988A5A16AF6810006D810D /* BLMarginLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

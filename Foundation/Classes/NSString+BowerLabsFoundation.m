@@ -50,4 +50,28 @@
     return (self.length > 0 ? self : nil);
 }
 
+- (NSString*)formatPhoneNumber
+{
+    if (self.length == 7) {
+        return [NSString stringWithFormat:@"%@-%@",
+                [self substringWithRange:NSMakeRange(0, 3)],
+                [self substringWithRange:NSMakeRange(3, 4)]];
+    }
+    else if (self.length == 10) {
+        return [NSString stringWithFormat:@"(%@) %@-%@",
+                [self substringWithRange:NSMakeRange(0, 3)],
+                [self substringWithRange:NSMakeRange(3, 3)],
+                [self substringWithRange:NSMakeRange(6, 4)]];
+    }
+    else if (self.length == 11) {
+        return [NSString stringWithFormat:@"%@ (%@) %@-%@",
+                [self substringWithRange:NSMakeRange(0, 1)],
+                [self substringWithRange:NSMakeRange(1, 3)],
+                [self substringWithRange:NSMakeRange(4, 3)],
+                [self substringWithRange:NSMakeRange(7, 4)]];
+    }
+    
+    return self;
+}
+
 @end

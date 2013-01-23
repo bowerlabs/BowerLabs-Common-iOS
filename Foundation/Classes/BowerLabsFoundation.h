@@ -6,13 +6,15 @@
 //  Copyright (c) 2013 Bower Labs Inc. All rights reserved.
 //
 
-#ifndef BowerLabsFoundation_BowerLabsFoundation_h
-#define BowerLabsFoundation_BowerLabsFoundation_h
+#ifndef BowerLabsFoundation_h
+#define BowerLabsFoundation_h
 
 #import "BLBlockOperation.h"
 #import "BLOperationHelpers.h"
 #import "NSArray+BowerLabsFoundation.h"
 #import "NSDate+BowerLabsFoundation.h"
+#import "NSMutableArray+BowerLabsFoundation.h"
+#import "NSNotification+BowerLabsFoundation.h"
 #import "NSObject+BowerLabsFoundation.h"
 #import "NSOperationQueue+BowerLabsFoundation.h"
 #import "NSString+BowerLabsFoundation.h"

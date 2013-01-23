@@ -18,4 +18,6 @@
 - (NSString*)trimWhitespace;
 - (NSString*)nilForEmptyString;
 
+- (NSString*)formatPhoneNumber;
+
 @end

@@ -8,6 +8,8 @@
 
 #import "UIView+BowerLabsUIKit.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @implementation UIView (BowerLabsUIKit)
 
 - (void)applyRoundedTopCornersWithRadius:(CGFloat)radius

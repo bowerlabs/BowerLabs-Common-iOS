@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'BowerLabs'
-  s.version  = '1.0.3'
+  s.version  = '1.0.4'
   s.platform = :ios
   s.license  = 'MIT'
   s.summary  = 'Common frameworks used by many Bower Labs projects.'
@@ -12,16 +12,22 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
   
-  s.preferred_dependency = 'Foundation'
+  s.preferred_dependency = 'UIKit'
   
-  s.subspec 'Foundation' do |foundation|
-    foundation.source_files = 'Foundation/Classes'
-    foundation.ios.frameworks = 'Foundation', 'CoreFoundation'
+  s.subspec 'Foundation' do |sub|
+    sub.source_files = 'Foundation/Classes'
+    sub.ios.frameworks = 'Foundation', 'CoreFoundation'
   end
   
-  s.subspec 'UIKit' do |uikit|
-    uikit.source_files = 'UIKit/Classes'
-    uikit.ios.frameworks = 'UIKit', 'QuartzCore'
-    uikit.dependency 'BowerLabs/Foundation'
+  s.subspec 'UIKit' do |sub|
+    sub.source_files = 'UIKit/Classes'
+    sub.ios.frameworks = 'UIKit', 'QuartzCore'
+    sub.dependency 'BowerLabs/Foundation'
+  end
+  
+  s.subspec 'MapKit' do |sub|
+    sub.source_files = 'MapKit/Classes'
+    sub.ios.frameworks = 'MapKit', 'CoreLocation'
+    sub.dependency 'BowerLabs/Foundation'
   end
 end

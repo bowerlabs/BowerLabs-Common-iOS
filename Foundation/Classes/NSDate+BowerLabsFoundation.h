@@ -10,10 +10,18 @@
 
 @interface NSDate (BowerLabsFoundation)
 
++ (NSDate*)dateWithRFC822:(NSString*)value;
+
 + (NSDate*)dateWithRFC3339:(NSString*)value;
 
 + (NSDate*)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 + (NSDate*)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day calendar:(NSCalendar*)calendar;
+
+- (NSDate*)startOfDay;
+
+- (BOOL)isBefore:(NSDate *)date;
+
+- (BOOL)isAfter:(NSDate *)date;
 
 @end

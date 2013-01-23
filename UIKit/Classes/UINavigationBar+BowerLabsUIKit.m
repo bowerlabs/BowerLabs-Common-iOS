@@ -8,6 +8,8 @@
 
 #import "UINavigationBar+BowerLabsUIKit.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @implementation UINavigationBar (BowerLabsUIKit)
 
 - (void)applyShadowWithColor:(UIColor*)color

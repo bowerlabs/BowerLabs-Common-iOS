@@ -12,5 +12,6 @@
 
 - (id)nilForNull;
 - (void)afterDelay:(NSTimeInterval)delay perform:(void (^)(void))block;
+- (void)afterDelay:(NSTimeInterval)delay queue:(NSOperationQueue*)queue perform:(void (^)(void))block;
 
 @end
