@@ -8,6 +8,17 @@
 
 #import "NSObject+BowerLabsFoundation.h"
 
+#import "BLKeyValueObserverForNSObjectOnly.h"
+
+id nullForNil(id value)
+{
+    if (value == nil) {
+        return [NSNull null];
+    }
+    
+    return value;
+}
+
 @implementation NSObject (BowerLabsFoundation)
 
 - (id)nilForNull
@@ -15,17 +26,14 @@
     return ([self isMemberOfClass:[NSNull class]] ? nil : self);
 }
 
-- (void)afterDelay:(NSTimeInterval)delay perform:(void (^)(void))block
+- (BLKeyValueObserver*)addObserverForKeyPath:(NSString*)keyPath
+                                     options:(NSKeyValueObservingOptions)options
+                                       block:(BLKeyValueObserverBlock)block
 {
-    [self afterDelay:delay queue:[NSOperationQueue mainQueue] perform:block];
-}
-
-- (void)afterDelay:(NSTimeInterval)delay queue:(NSOperationQueue*)queue perform:(void (^)(void))block
-{
-    NSOperation* operation = [NSBlockOperation blockOperationWithBlock:block];
-    [queue performSelector:@selector(addOperation:)
-                withObject:operation
-                afterDelay:delay];
+    return [[BLKeyValueObserver alloc] initWithObservedObject:self
+                                                      keyPath:keyPath
+                                                      options:options
+                                                        block:block];
 }
 
 @end

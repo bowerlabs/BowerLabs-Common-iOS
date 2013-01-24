@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'BowerLabs'
-  s.version  = '1.0.4'
+  s.version  = '1.0.5'
   s.platform = :ios
   s.license  = 'MIT'
   s.summary  = 'Common frameworks used by many Bower Labs projects.'
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
   
-  s.preferred_dependency = 'UIKit'
+  s.preferred_dependency = 'Foundation'
   
   s.subspec 'Foundation' do |sub|
     sub.source_files = 'Foundation/Classes'

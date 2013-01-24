@@ -11,4 +11,5 @@
 typedef void(^BLMainThreadBlock)();
 
 void performOnMainThread(BLMainThreadBlock block);
+void performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock block);
 void performOnMainThreadAndWait(BLMainThreadBlock block);

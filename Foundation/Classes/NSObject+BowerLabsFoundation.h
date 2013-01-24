@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BLKeyValueObserverBlock.h"
+
+extern id nullForNil(id value);
+
+@class BLKeyValueObserver;
+
 @interface NSObject (BowerLabsFoundation)
 
 - (id)nilForNull;
-- (void)afterDelay:(NSTimeInterval)delay perform:(void (^)(void))block;
-- (void)afterDelay:(NSTimeInterval)delay queue:(NSOperationQueue*)queue perform:(void (^)(void))block;
+
+- (BLKeyValueObserver*)addObserverForKeyPath:(NSString*)keyPath
+                                     options:(NSKeyValueObservingOptions)options
+                                       block:(BLKeyValueObserverBlock)block;
 
 @end

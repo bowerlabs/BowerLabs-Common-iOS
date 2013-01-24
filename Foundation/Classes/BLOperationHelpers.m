@@ -21,6 +21,15 @@ void performOnMainThread(BLMainThreadBlock block) {
     }
 }
 
+void performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock block)
+{
+    if (!block) {
+        return;
+    }
+    
+    dispatch_after(delay * NSEC_PER_SEC, dispatch_get_main_queue(), block);
+}
+
 void performOnMainThreadAndWait(BLMainThreadBlock block) {
     if (!block) {
         return;
