@@ -11,6 +11,7 @@
 
 #import "BLBlockOperation.h"
 #import "BLKeyValueObserver.h"
+#import "BLLocalization.h"
 #import "BLOperationHelpers.h"
 #import "NSArray+BowerLabsFoundation.h"
 #import "NSDate+BowerLabsFoundation.h"

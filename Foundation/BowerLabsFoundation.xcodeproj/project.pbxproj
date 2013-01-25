@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0E6D1D16B21C3B00145D45 /* BLLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E6D1C16B21C3B00145D45 /* BLLocalization.m */; };
 		3F1EC55D16B1F1CA00E387C1 /* BLKeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1EC55C16B1F1CA00E387C1 /* BLKeyValueObserver.m */; };
 		3F1EC56116B1FDF500E387C1 /* BowerLabs.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3F1EC56016B1FDF500E387C1 /* BowerLabs.podspec */; };
 		3F2FE12C16AEDCFB00F58ABB /* BLBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE11816AEDCFB00F58ABB /* BLBlockOperation.m */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F0E6D1B16B21C3B00145D45 /* BLLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLocalization.h; sourceTree = "<group>"; };
+		3F0E6D1C16B21C3B00145D45 /* BLLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLocalization.m; sourceTree = "<group>"; };
 		3F1EC55B16B1F1CA00E387C1 /* BLKeyValueObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKeyValueObserver.h; sourceTree = "<group>"; };
 		3F1EC55C16B1F1CA00E387C1 /* BLKeyValueObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKeyValueObserver.m; sourceTree = "<group>"; };
 		3F1EC55F16B1F87500E387C1 /* BLKeyValueObserverForNSObjectOnly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLKeyValueObserverForNSObjectOnly.h; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				3F2FE12316AEDCFB00F58ABB /* NSOperationQueue+BowerLabsFoundation.m */,
 				3F2FE12416AEDCFB00F58ABB /* NSString+BowerLabsFoundation.h */,
 				3F2FE12516AEDCFB00F58ABB /* NSString+BowerLabsFoundation.m */,
+				3F0E6D1B16B21C3B00145D45 /* BLLocalization.h */,
+				3F0E6D1C16B21C3B00145D45 /* BLLocalization.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -238,6 +243,7 @@
 				3F988A0316AF547E006D810D /* NSMutableArray+BowerLabsFoundation.m in Sources */,
 				3F988A1316AF57CB006D810D /* NSNotification+BowerLabsFoundation.m in Sources */,
 				3F1EC55D16B1F1CA00E387C1 /* BLKeyValueObserver.m in Sources */,
+				3F0E6D1D16B21C3B00145D45 /* BLLocalization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
