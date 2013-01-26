@@ -90,7 +90,7 @@
     return self;
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (0 <= buttonIndex && buttonIndex < self.items.count) {
         BLActionItem* item = [self.items objectAtIndex:buttonIndex];

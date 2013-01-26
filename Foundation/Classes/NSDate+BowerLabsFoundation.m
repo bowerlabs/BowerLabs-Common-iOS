@@ -10,40 +10,79 @@
 
 @implementation NSDate (BowerLabsFoundation)
 
-+ (NSDate*)dateWithRFC822:(NSString*)value
++ (NSDate*)dateWithRFCFormattedString:(NSString*)value
 {
-    // Create a shared formatter.
-    static NSDateFormatter* formatter = nil;
-    static dispatch_once_t oncePredicate;
-    dispatch_once(&oncePredicate, ^{
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-    });
-    
-    // It's common for some Rails servers to include a colon in the date/time string.
-    // Correct the timezone so iOS can parse it using the built-in timezone formatter.
-    if ([value characterAtIndex:22] == ':') {
-        NSMutableString* tempStr = [NSMutableString stringWithString:value];
-        [tempStr deleteCharactersInRange:NSMakeRange(22, 1)];
-        value = tempStr;
+    NSDate* date = nil;
+    if ((date = [self dateWithRFCFormattedStringA:value]) ||
+        (date = [self dateWithRFCFormattedStringB:value]))
+    {
+        return date;
     }
     
-    // Convert to a date.
-    return [formatter dateFromString:value];
+    NSLog(@"Failed to parse RFC formatted datetime: %@", value);
+    return nil;
 }
 
-+ (NSDate*)dateWithRFC3339:(NSString*)value
++ (NSDate*)dateWithRFCFormattedStringA:(NSString*)value
 {
     // Create a shared formatter.
-    static NSDateFormatter* formatter = nil;
+    static NSRegularExpression* regex = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
-        formatter = [[NSDateFormatter alloc] init];
-        formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+        regex = [[NSRegularExpression alloc] initWithPattern:@"(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})Z" options:0 error:nil];
     });
     
-    // Convert to a date.
-    return [formatter dateFromString:value];
+    // Match the string.
+    NSTextCheckingResult* result = [regex firstMatchInString:value options:0 range:NSMakeRange(0, value.length)];
+    if (result) {
+        NSDateComponents* components = [[NSDateComponents alloc] init];
+        components.year =   [[value substringWithRange:[result rangeAtIndex:1]] integerValue];
+        components.month =  [[value substringWithRange:[result rangeAtIndex:2]] integerValue];
+        components.day =    [[value substringWithRange:[result rangeAtIndex:3]] integerValue];
+        components.hour =   [[value substringWithRange:[result rangeAtIndex:4]] integerValue];
+        components.minute = [[value substringWithRange:[result rangeAtIndex:5]] integerValue];
+        components.second = [[value substringWithRange:[result rangeAtIndex:6]] integerValue];
+        
+        components.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+        
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        return [cal dateFromComponents:components];
+    }
+    
+    return nil;
+}
+
++ (NSDate*)dateWithRFCFormattedStringB:(NSString*)value
+{
+    // Create a shared formatter.
+    static NSRegularExpression* regex = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        regex = [[NSRegularExpression alloc] initWithPattern:@"(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})([\\+-])(\\d{2}):?(\\d{2})" options:0 error:nil];
+    });
+    
+    // Match the string.
+    NSTextCheckingResult* result = [regex firstMatchInString:value options:0 range:NSMakeRange(0, value.length)];
+    if (result) {
+        NSDateComponents* components = [[NSDateComponents alloc] init];
+        components.year =   [[value substringWithRange:[result rangeAtIndex:1]] integerValue];
+        components.month =  [[value substringWithRange:[result rangeAtIndex:2]] integerValue];
+        components.day =    [[value substringWithRange:[result rangeAtIndex:3]] integerValue];
+        components.hour =   [[value substringWithRange:[result rangeAtIndex:4]] integerValue];
+        components.minute = [[value substringWithRange:[result rangeAtIndex:5]] integerValue];
+        components.second = [[value substringWithRange:[result rangeAtIndex:6]] integerValue];
+        
+        NSInteger offsetSign = ([[value substringWithRange:[result rangeAtIndex:7]] isEqualToString:@"-"] ? -1 : 1);
+        NSInteger offsetHoursComponent = [[value substringWithRange:[result rangeAtIndex:8]] integerValue];
+        NSInteger offsetMinutesComponent = [[value substringWithRange:[result rangeAtIndex:9]] integerValue];
+        NSInteger offsetSeconds = offsetSign * ((offsetHoursComponent * 60 * 60) + (offsetMinutesComponent * 60));
+        components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:offsetSeconds];
+        
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        return [cal dateFromComponents:components];
+    }
+    
+    return nil;
 }
 
 + (NSDate*)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
@@ -58,16 +97,15 @@
     components.year = year;
     components.month = month;
     components.day = day;
-    components.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    components.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
     return [calendar dateFromComponents:components];
 }
 
 - (NSDate*)startOfDay
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
-    
-    NSDateComponents *comps = [cal components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
-                                     fromDate:self];
+    NSUInteger unitFlags = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSTimeZoneCalendarUnit);
+    NSDateComponents *comps = [cal components:unitFlags fromDate:self];
     return [cal dateFromComponents:comps];
 }
 

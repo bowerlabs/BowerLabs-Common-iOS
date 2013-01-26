@@ -10,9 +10,7 @@
 
 @interface NSDate (BowerLabsFoundation)
 
-+ (NSDate*)dateWithRFC822:(NSString*)value;
-
-+ (NSDate*)dateWithRFC3339:(NSString*)value;
++ (NSDate*)dateWithRFCFormattedString:(NSString*)value;
 
 + (NSDate*)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
