@@ -10,6 +10,11 @@
 
 @implementation UIColor (BowerLabsUIKit)
 
++ (UIColor*)colorWithIntegerRed:(NSInteger)r green:(NSInteger)g blue:(NSInteger)b alpha:(CGFloat)a
+{
+    return [UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a];
+}
+
 + (UIColor*)colorWithHex:(NSInteger)hex alpha:(CGFloat)alpha
 {
     CGFloat r = ((hex & 0x00FF0000) >> 16) / 255.0;

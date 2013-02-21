@@ -20,21 +20,36 @@
 + (BLBlockOperation*)blockOperationWithMain:(BLBlockOperationMain)mainBlock
                                  completion:(BLBlockOperationCompletion)completionBlock
 {
+    return [self blockOperationWithStartup:nil main:mainBlock completion:completionBlock];
+}
+
++ (BLBlockOperation*)blockOperationWithStartup:(BLBlockOperationStartup)startupBlock
+                                          main:(BLBlockOperationMain)mainBlock
+                                    completion:(BLBlockOperationCompletion)completionBlock
+{
     BLBlockOperation* operation = [[BLBlockOperation alloc] init];
     operation.blMainBlock = mainBlock;
     operation.blCompletionBlock = completionBlock;
+    
+    if (startupBlock) {
+        startupBlock(operation);
+    }
+    
     return operation;
 }
 
 - (void)main
 {
     @autoreleasepool {
-        if (self.blMainBlock) {
-            self.blMainBlock();
+        @try {
+            if (self.blMainBlock) {
+                self.blMainBlock(self);
+            }
         }
-        
-        if (self.blCompletionBlock) {
-            self.blCompletionBlock(self);
+        @finally {
+            if (self.blCompletionBlock) {
+                self.blCompletionBlock(self);
+            }
         }
     }
 }

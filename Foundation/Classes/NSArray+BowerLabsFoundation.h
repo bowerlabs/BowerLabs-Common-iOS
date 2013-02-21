@@ -12,4 +12,6 @@
 
 - (id)firstObject;
 
+- (NSArray*)splitArrayAtIndex:(NSUInteger)index;
+
 @end

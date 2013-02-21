@@ -15,4 +15,16 @@
     return (self.count ? [self objectAtIndex:0] : nil);
 }
 
+- (NSArray*)splitArrayAtIndex:(NSUInteger)index
+{
+    if (index == NSNotFound || index >= self.count) {
+        return @[ self, @[] ];
+    }
+    
+    NSUInteger len = (self.count - index);
+    return @[
+        [self subarrayWithRange:NSMakeRange(0, index)],
+        [self subarrayWithRange:NSMakeRange(index, len)] ];
+}
+
 @end

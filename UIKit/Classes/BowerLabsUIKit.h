@@ -10,6 +10,8 @@
 #import "BLAlertView.h"
 #import "BLButton.h"
 #import "BLMarginLabel.h"
+#import "BLTextField.h"
+#import "BLView.h"
 #import "UIBarButtonItem+BowerLabsUIKit.h"
 #import "UIColor+BowerLabsUIKit.h"
 #import "UIImage+BowerLabsUIKit.h"

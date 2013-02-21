@@ -8,12 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^BLBlockOperationMain)();
+typedef void(^BLBlockOperationStartup)(NSOperation* operation);
+typedef void(^BLBlockOperationMain)(NSOperation* operation);
 typedef void(^BLBlockOperationCompletion)(NSOperation* operation);
 
 @interface BLBlockOperation : NSOperation
 
 + (BLBlockOperation*)blockOperationWithMain:(BLBlockOperationMain)mainBlock
                                  completion:(BLBlockOperationCompletion)completionBlock;
+
++ (BLBlockOperation*)blockOperationWithStartup:(BLBlockOperationStartup)startupBlock
+                                          main:(BLBlockOperationMain)mainBlock
+                                    completion:(BLBlockOperationCompletion)completionBlock;
 
 @end

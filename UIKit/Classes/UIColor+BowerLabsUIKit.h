@@ -10,6 +10,7 @@
 
 @interface UIColor (BowerLabsUIKit)
 
++ (UIColor*)colorWithIntegerRed:(NSInteger)r green:(NSInteger)g blue:(NSInteger)b alpha:(CGFloat)a;
 + (UIColor*)colorWithHex:(NSInteger)hex alpha:(CGFloat)alpha;
 
 @end

@@ -12,6 +12,10 @@
 
 + (NSDate*)dateWithRFCFormattedString:(NSString*)value
 {
+    if (!value) {
+        return nil;
+    }
+    
     NSDate* date = nil;
     if ((date = [self dateWithRFCFormattedStringA:value]) ||
         (date = [self dateWithRFCFormattedStringB:value]))

@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 
 typedef void(^BLMainThreadBlock)();
+typedef void(^BLBackgroundBlock)();
 
 void performOnMainThread(BLMainThreadBlock block);
+void performOnMainThreadLater(BLMainThreadBlock block);
 void performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock block);
 void performOnMainThreadAndWait(BLMainThreadBlock block);
+
+void performInBackground(BLBackgroundBlock);
+void performInBackgroundAfterDelay(NSTimeInterval delay, BLBackgroundBlock block);

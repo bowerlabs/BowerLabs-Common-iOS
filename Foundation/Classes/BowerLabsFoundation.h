@@ -16,6 +16,7 @@
 #import "NSArray+BowerLabsFoundation.h"
 #import "NSDate+BowerLabsFoundation.h"
 #import "NSMutableArray+BowerLabsFoundation.h"
+#import "NSMutableAttributedString+BowerLabsFoundation.h"
 #import "NSNotification+BowerLabsFoundation.h"
 #import "NSObject+BowerLabsFoundation.h"
 #import "NSOperationQueue+BowerLabsFoundation.h"

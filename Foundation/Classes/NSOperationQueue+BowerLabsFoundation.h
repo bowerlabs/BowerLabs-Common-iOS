@@ -10,8 +10,6 @@
 
 #import "BLBlockOperation.h"
 
-typedef void(^BLBlockOperationStartup)(NSOperation* operation);
-
 @interface NSOperationQueue (BowerLabsFoundation)
 
 + (NSOperationQueue*)backgroundQueue;
