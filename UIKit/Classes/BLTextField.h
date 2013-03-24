@@ -11,5 +11,6 @@
 @interface BLTextField : UITextField
 
 @property (nonatomic, strong) UIColor* placeholderColor;
+@property (nonatomic, assign) UIEdgeInsets contentInsets;
 
 @end

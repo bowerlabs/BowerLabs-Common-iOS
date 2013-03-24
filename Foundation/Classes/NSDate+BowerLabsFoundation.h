@@ -16,10 +16,20 @@
 
 + (NSDate*)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day calendar:(NSCalendar*)calendar;
 
++ (NSDate*)today;
+
++ (NSDate*)tomorrow;
+
++ (NSDate*)yesterday;
+
 - (NSDate*)startOfDay;
 
 - (BOOL)isBefore:(NSDate *)date;
 
 - (BOOL)isAfter:(NSDate *)date;
+
+- (BOOL)isEqualOrBefore:(NSDate*)date;
+
+- (BOOL)isEqualOrAfter:(NSDate*)date;
 
 @end

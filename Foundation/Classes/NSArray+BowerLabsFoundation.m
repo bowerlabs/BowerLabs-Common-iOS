@@ -12,7 +12,22 @@
 
 - (id)firstObject
 {
-    return (self.count ? [self objectAtIndex:0] : nil);
+    return (self.count > 0 ? [self objectAtIndex:0] : nil);
+}
+
+- (NSArray*)tailObjects
+{
+    return (self.count > 1 ? [self subarrayWithRange:NSMakeRange(1, self.count - 1)] : nil);
+}
+
+- (NSArray*)arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map
+{
+    NSMutableArray* mappedArray = [NSMutableArray arrayWithCapacity:self.count];
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [mappedArray addObject:map(obj, idx, stop)];
+    }];
+    
+    return mappedArray;
 }
 
 - (NSArray*)splitArrayAtIndex:(NSUInteger)index
@@ -25,6 +40,46 @@
     return @[
         [self subarrayWithRange:NSMakeRange(0, index)],
         [self subarrayWithRange:NSMakeRange(index, len)] ];
+}
+
+- (NSArray*)groupedArrayUsingDescriptors:(NSArray*)sortDescriptors
+{
+    if (self.count == 0) {
+        return [NSArray array];
+    }
+    else if(self.count == 1) {
+        return [NSArray arrayWithObject:self];
+    }
+    
+    id object1 = self.firstObject;
+    NSMutableArray* group = [NSMutableArray arrayWithObject:object1];
+    NSMutableArray* groups = [NSMutableArray arrayWithObject:group];
+    for (id object2 in self.tailObjects) {
+        NSComparisonResult result = [self compareObject:object1 toObject:object2 usingDescriptors:sortDescriptors];
+        if (result != NSOrderedSame) {
+            group = [NSMutableArray arrayWithObject:object2];
+            [groups addObject:group];
+        }
+        else {
+            [group addObject:object2];
+        }
+        
+        object1 = object2;
+    }
+    
+    return groups;
+}
+
+- (NSComparisonResult)compareObject:(id)object1 toObject:(id)object2 usingDescriptors:(NSArray*)sortDescriptors
+{
+    for (NSSortDescriptor* sortDescriptor in sortDescriptors) {
+        NSComparisonResult result = [sortDescriptor compareObject:object1 toObject:object2];
+        if (result != NSOrderedSame) {
+            return result;
+        }
+    }
+    
+    return NSOrderedSame;
 }
 
 @end

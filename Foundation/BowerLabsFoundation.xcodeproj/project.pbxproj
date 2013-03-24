@@ -11,6 +11,7 @@
 		3F0E6D1D16B21C3B00145D45 /* BLLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E6D1C16B21C3B00145D45 /* BLLocalization.m */; };
 		3F1EC55D16B1F1CA00E387C1 /* BLKeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1EC55C16B1F1CA00E387C1 /* BLKeyValueObserver.m */; };
 		3F1EC56116B1FDF500E387C1 /* BowerLabs.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3F1EC56016B1FDF500E387C1 /* BowerLabs.podspec */; };
+		3F2CE53916E80F7100D93AD5 /* BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2CE53816E80F7100D93AD5 /* BowerLabsFoundation.m */; };
 		3F2FE12C16AEDCFB00F58ABB /* BLBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE11816AEDCFB00F58ABB /* BLBlockOperation.m */; };
 		3F2FE12D16AEDCFB00F58ABB /* BLOperationHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE11A16AEDCFB00F58ABB /* BLOperationHelpers.m */; };
 		3F2FE12E16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE11D16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.m */; };
@@ -26,6 +27,7 @@
 		3F2FFB0D16AE3289008BCEA7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFAD116AE2BBA008BCEA7 /* CoreFoundation.framework */; };
 		3F988A0316AF547E006D810D /* NSMutableArray+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F988A0216AF547E006D810D /* NSMutableArray+BowerLabsFoundation.m */; };
 		3F988A1316AF57CB006D810D /* NSNotification+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F988A1216AF57CB006D810D /* NSNotification+BowerLabsFoundation.m */; };
+		3FA7248716DECBE600270E2C /* NSDictionary+BowerLabsFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA7248616DECBE600270E2C /* NSDictionary+BowerLabsFoundation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		3F1EC55F16B1F87500E387C1 /* BLKeyValueObserverForNSObjectOnly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLKeyValueObserverForNSObjectOnly.h; sourceTree = "<group>"; };
 		3F1EC56016B1FDF500E387C1 /* BowerLabs.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BowerLabs.podspec; path = ../BowerLabs.podspec; sourceTree = "<group>"; };
 		3F1EC56216B2016000E387C1 /* BLKeyValueObserverBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLKeyValueObserverBlock.h; sourceTree = "<group>"; };
+		3F2CE53816E80F7100D93AD5 /* BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BowerLabsFoundation.m; sourceTree = "<group>"; };
 		3F2FE11716AEDCFB00F58ABB /* BLBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBlockOperation.h; sourceTree = "<group>"; };
 		3F2FE11816AEDCFB00F58ABB /* BLBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBlockOperation.m; sourceTree = "<group>"; };
 		3F2FE11916AEDCFB00F58ABB /* BLOperationHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOperationHelpers.h; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 		3F988A0216AF547E006D810D /* NSMutableArray+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+BowerLabsFoundation.m"; sourceTree = "<group>"; };
 		3F988A1116AF57CB006D810D /* NSNotification+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotification+BowerLabsFoundation.h"; sourceTree = "<group>"; };
 		3F988A1216AF57CB006D810D /* NSNotification+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotification+BowerLabsFoundation.m"; sourceTree = "<group>"; };
+		3FA7248516DECBE600270E2C /* NSDictionary+BowerLabsFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BowerLabsFoundation.h"; sourceTree = "<group>"; };
+		3FA7248616DECBE600270E2C /* NSDictionary+BowerLabsFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BowerLabsFoundation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				3F2FE11B16AEDCFB00F58ABB /* BowerLabsFoundation.h */,
+				3F2CE53816E80F7100D93AD5 /* BowerLabsFoundation.m */,
 				3F2FE11716AEDCFB00F58ABB /* BLBlockOperation.h */,
 				3F2FE11816AEDCFB00F58ABB /* BLBlockOperation.m */,
 				3F1EC55B16B1F1CA00E387C1 /* BLKeyValueObserver.h */,
@@ -97,6 +103,8 @@
 				3F2FE11D16AEDCFB00F58ABB /* NSArray+BowerLabsFoundation.m */,
 				3F2FE11E16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.h */,
 				3F2FE11F16AEDCFB00F58ABB /* NSDate+BowerLabsFoundation.m */,
+				3FA7248516DECBE600270E2C /* NSDictionary+BowerLabsFoundation.h */,
+				3FA7248616DECBE600270E2C /* NSDictionary+BowerLabsFoundation.m */,
 				3F988A0116AF547E006D810D /* NSMutableArray+BowerLabsFoundation.h */,
 				3F988A0216AF547E006D810D /* NSMutableArray+BowerLabsFoundation.m */,
 				3F08725416D419C800FACA4B /* NSMutableAttributedString+BowerLabsFoundation.h */,
@@ -250,6 +258,8 @@
 				3F1EC55D16B1F1CA00E387C1 /* BLKeyValueObserver.m in Sources */,
 				3F0E6D1D16B21C3B00145D45 /* BLLocalization.m in Sources */,
 				3F08725616D419C800FACA4B /* NSMutableAttributedString+BowerLabsFoundation.m in Sources */,
+				3FA7248716DECBE600270E2C /* NSDictionary+BowerLabsFoundation.m in Sources */,
+				3F2CE53916E80F7100D93AD5 /* BowerLabsFoundation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

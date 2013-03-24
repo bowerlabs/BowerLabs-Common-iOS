@@ -16,6 +16,7 @@
 {
     // Round corners of the navigation bar.
     CGRect bounds = self.layer.bounds;
+    bounds.size.height += 10;
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
                                                    byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
                                                          cornerRadii:CGSizeMake(radius, radius)];

@@ -13,11 +13,25 @@
 - (void) drawPlaceholderInRect:(CGRect)rect {
     if (self.placeholderColor) {
         [self.placeholderColor setFill];
-        [self.placeholder drawInRect:rect withFont:self.font lineBreakMode:UILineBreakModeClip alignment:self.textAlignment];
+        [self.placeholder drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByClipping alignment:self.textAlignment];
     }
     else {
         [super drawPlaceholderInRect:rect];
     }
+}
+
+- (CGRect)textRectForBounds:(CGRect)bounds {
+    return CGRectMake(bounds.origin.x + self.contentInsets.left,
+                      bounds.origin.y + self.contentInsets.top,
+                      bounds.size.width - self.contentInsets.left - self.contentInsets.right,
+                      bounds.size.width - self.contentInsets.top - self.contentInsets.bottom);
+}
+
+- (CGRect)editingRectForBounds:(CGRect)bounds {
+    return CGRectMake(bounds.origin.x + self.contentInsets.left,
+                      bounds.origin.y + self.contentInsets.top,
+                      bounds.size.width - self.contentInsets.left - self.contentInsets.right,
+                      bounds.size.width - self.contentInsets.top - self.contentInsets.bottom);
 }
 
 @end

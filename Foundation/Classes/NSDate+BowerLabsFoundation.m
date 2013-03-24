@@ -49,8 +49,8 @@
         
         components.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
         
-        NSCalendar *cal = [NSCalendar currentCalendar];
-        return [cal dateFromComponents:components];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        return [calendar dateFromComponents:components];
     }
     
     return nil;
@@ -82,8 +82,8 @@
         NSInteger offsetSeconds = offsetSign * ((offsetHoursComponent * 60 * 60) + (offsetMinutesComponent * 60));
         components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:offsetSeconds];
         
-        NSCalendar *cal = [NSCalendar currentCalendar];
-        return [cal dateFromComponents:components];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        return [calendar dateFromComponents:components];
     }
     
     return nil;
@@ -91,7 +91,7 @@
 
 + (NSDate*)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
-    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
     return [self dateWithYear:year month:month day:day calendar:calendar];
 }
 
@@ -105,6 +105,33 @@
     return [calendar dateFromComponents:components];
 }
 
++ (NSDate*)today
+{
+    return [[NSDate date] startOfDay];
+}
+
++ (NSDate*)tomorrow
+{
+    NSDate* today = [NSDate today];
+    
+    NSDateComponents* comps = [[NSDateComponents alloc] init];
+    [comps setDay:1];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    return [calendar dateByAddingComponents:comps toDate:today options:0];
+}
+
++ (NSDate*)yesterday
+{
+    NSDate* today = [NSDate today];
+    
+    NSDateComponents* comps = [[NSDateComponents alloc] init];
+    [comps setDay:-1];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    return [calendar dateByAddingComponents:comps toDate:today options:0];
+}
+
 - (NSDate*)startOfDay
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
@@ -115,12 +142,22 @@
 
 - (BOOL)isBefore:(NSDate *)date
 {
-    return ([self compare:date] == NSOrderedAscending);
+    return self.timeIntervalSinceReferenceDate < date.timeIntervalSinceReferenceDate;
 }
 
 - (BOOL)isAfter:(NSDate *)date
 {
-    return ([self compare:date] == NSOrderedDescending);
+    return self.timeIntervalSinceReferenceDate > date.timeIntervalSinceReferenceDate;
+}
+
+- (BOOL)isEqualOrBefore:(NSDate*)date
+{
+    return self.timeIntervalSinceReferenceDate <= date.timeIntervalSinceReferenceDate;
+}
+
+- (BOOL)isEqualOrAfter:(NSDate*)date
+{
+    return self.timeIntervalSinceReferenceDate >= date.timeIntervalSinceReferenceDate;
 }
 
 @end
