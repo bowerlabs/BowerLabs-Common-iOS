@@ -8,6 +8,8 @@
 
 #import "NSString+BowerLabsFoundation.h"
 
+#import "NSDate+BowerLabsFoundation.h"
+
 @implementation NSString (BowerLabsFoundation)
 
 + (NSString*)stringWithData:(NSData*)data encoding:(NSStringEncoding)encoding
@@ -72,6 +74,11 @@
     }
     
     return self;
+}
+
+- (NSDate*)dateValue
+{
+    return [NSDate dateWithRFCFormattedString:self];
 }
 
 @end

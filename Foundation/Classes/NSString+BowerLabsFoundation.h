@@ -20,4 +20,6 @@
 
 - (NSString*)formatPhoneNumber;
 
+- (NSDate*)dateValue;
+
 @end
