@@ -82,4 +82,21 @@
     return NSOrderedSame;
 }
 
+- (NSArray*)arrayByShiftingLeft:(NSUInteger)shift
+{
+    if (self.count == 0) {
+        return [NSArray array];
+    }
+    
+    shift = shift % self.count;
+    if (shift == 0) {
+        return [NSArray arrayWithArray:self];
+    }
+    
+    NSArray* array1 = [self subarrayWithRange:NSMakeRange(0, shift)];
+    NSArray* array2 = [self subarrayWithRange:NSMakeRange(shift, self.count - shift)];
+    
+    return [array2 arrayByAddingObjectsFromArray:array1];
+}
+
 @end

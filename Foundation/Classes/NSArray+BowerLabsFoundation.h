@@ -20,4 +20,6 @@
 
 - (NSArray*)groupedArrayUsingDescriptors:(NSArray*)sortDescriptors;
 
+- (NSArray*)arrayByShiftingLeft:(NSUInteger)shift;
+
 @end
