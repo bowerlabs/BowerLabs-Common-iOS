@@ -18,6 +18,36 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     return [image resizableImageWithCapInsets:insets];
 }
 
+- (UIImage*)squareImageWithSides:(CGFloat)sides
+{
+    UIImage* sourceImage = self;
+    
+    CGImageRef imageRef = [sourceImage CGImage];
+    CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
+    CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
+    
+    if (bitmapInfo == kCGImageAlphaNone) {
+        bitmapInfo = kCGImageAlphaNoneSkipLast;
+    }
+    
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, sides, sides, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+    
+    CGFloat scale = (sides / MIN(sourceImage.size.width, sourceImage.size.height));
+    CGFloat targetW = (sourceImage.size.width * scale);
+    CGFloat targetH = (sourceImage.size.height * scale);
+    CGFloat targetX = -(targetW - sides) / 2.0;
+    CGFloat targetY = -(targetH - sides) / 2.0;
+    
+    CGContextDrawImage(bitmap, CGRectMake(targetX, targetY, targetW, targetH), imageRef);
+    CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+    UIImage* newImage = [UIImage imageWithCGImage:ref];
+    
+    CGContextRelease(bitmap);
+    CGImageRelease(ref);
+    
+    return newImage;
+}
+
 - (UIImage*)scaleToSize:(CGSize)targetSize
 {
     UIImage* sourceImage = self;
