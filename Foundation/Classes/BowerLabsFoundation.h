@@ -14,6 +14,7 @@
 #import "BLLocalization.h"
 #import "BLOperationHelpers.h"
 #import "NSArray+BowerLabsFoundation.h"
+#import "NSData+BowerLabsFoundation.h"
 #import "NSDate+BowerLabsFoundation.h"
 #import "NSDictionary+BowerLabsFoundation.h"
 #import "NSMutableArray+BowerLabsFoundation.h"
