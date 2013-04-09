@@ -22,4 +22,10 @@
 
 - (NSArray*)arrayByShiftingLeft:(NSUInteger)shift;
 
+- (NSArray*)arrayByInsertingObject:(id)object atIndex:(NSUInteger)index;
+
+- (NSArray*)arrayByReplacingObjectAtIndex:(NSUInteger)index withObject:(id)object;
+
+- (NSArray*)arrayByRemovingObjectAtIndex:(NSUInteger)index;
+
 @end

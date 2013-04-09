@@ -99,4 +99,26 @@
     return [array2 arrayByAddingObjectsFromArray:array1];
 }
 
+- (NSArray*)arrayByInsertingObject:(id)object atIndex:(NSUInteger)index
+{
+    NSMutableArray* array = [NSMutableArray arrayWithCapacity:(self.count + 1)];
+    [array addObjectsFromArray:self];
+    [array insertObject:object atIndex:index];
+    return array;
+}
+
+- (NSArray*)arrayByReplacingObjectAtIndex:(NSUInteger)index withObject:(id)object
+{
+    NSMutableArray* array = [NSMutableArray arrayWithArray:self];
+    [array replaceObjectAtIndex:index withObject:object];
+    return array;
+}
+
+- (NSArray*)arrayByRemovingObjectAtIndex:(NSUInteger)index
+{
+    NSMutableArray* array = [NSMutableArray arrayWithArray:self];
+    [array removeObjectAtIndex:index];
+    return array;
+}
+
 @end
