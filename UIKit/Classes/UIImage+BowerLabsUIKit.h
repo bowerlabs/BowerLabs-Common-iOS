@@ -16,6 +16,8 @@
 
 - (UIImage*)scaleToSize:(CGSize)targetSize;
 
+- (UIImage*)scaleToMaxSide:(CGFloat)side;
+
 - (UIImage *)fixOrientation;
 
 @end

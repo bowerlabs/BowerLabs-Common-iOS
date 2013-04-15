@@ -74,6 +74,37 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     return newImage;
 }
 
+- (UIImage*)scaleToMaxSide:(CGFloat)side
+{
+    UIImage* sourceImage = self;
+    CGFloat scale = (side / MAX(sourceImage.size.width, sourceImage.size.height));
+    if (scale >= 1.0) {
+        return self;
+    }
+    
+    CGFloat targetW = (sourceImage.size.width * scale);
+    CGFloat targetH = (sourceImage.size.height * scale);
+    
+    CGImageRef imageRef = [sourceImage CGImage];
+    CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
+    CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
+    
+    if (bitmapInfo == kCGImageAlphaNone) {
+        bitmapInfo = kCGImageAlphaNoneSkipLast;
+    }
+    
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetW, targetH, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+    
+    CGContextDrawImage(bitmap, CGRectMake(0, 0, targetW, targetH), imageRef);
+    CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+    UIImage* newImage = [UIImage imageWithCGImage:ref];
+    
+    CGContextRelease(bitmap);
+    CGImageRelease(ref);
+    
+    return newImage;
+}
+
 - (UIImage *)fixOrientation
 {
     // No-op if the orientation is already correct
