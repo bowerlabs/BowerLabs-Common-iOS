@@ -25,22 +25,24 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     CGImageRef imageRef = [sourceImage CGImage];
     CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
     CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
+    size_t sourceW = CGImageGetWidth(imageRef);
+    size_t sourceH = CGImageGetHeight(imageRef);
     
     if (bitmapInfo == kCGImageAlphaNone) {
         bitmapInfo = kCGImageAlphaNoneSkipLast;
     }
     
-    CGContextRef bitmap = CGBitmapContextCreate(NULL, sides, sides, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
-    
-    CGFloat scale = (sides / MIN(sourceImage.size.width, sourceImage.size.height));
-    CGFloat targetW = (sourceImage.size.width * scale);
-    CGFloat targetH = (sourceImage.size.height * scale);
+    CGFloat targetSides = sides * sourceImage.scale;
+    CGFloat scale = (targetSides / MIN(sourceW, sourceH));
+    CGFloat targetW = (sourceW * scale);
+    CGFloat targetH = (sourceH * scale);
     CGFloat targetX = -(targetW - sides) / 2.0;
     CGFloat targetY = -(targetH - sides) / 2.0;
     
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, sides, sides, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
     CGContextDrawImage(bitmap, CGRectMake(targetX, targetY, targetW, targetH), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
-    UIImage* newImage = [UIImage imageWithCGImage:ref];
+    UIImage* newImage = [UIImage imageWithCGImage:ref scale:sourceImage.scale orientation:sourceImage.imageOrientation];
     
     CGContextRelease(bitmap);
     CGImageRelease(ref);
@@ -51,8 +53,6 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
 - (UIImage*)scaleToSize:(CGSize)targetSize
 {
     UIImage* sourceImage = self;
-    CGFloat targetWidth = targetSize.width;
-    CGFloat targetHeight = targetSize.height;
     
     CGImageRef imageRef = [sourceImage CGImage];
     CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
@@ -62,11 +62,13 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
         bitmapInfo = kCGImageAlphaNoneSkipLast;
     }
     
-    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+    CGFloat targetWidth = targetSize.width * sourceImage.scale;
+    CGFloat targetHeight = targetSize.height * sourceImage.scale;
     
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
     CGContextDrawImage(bitmap, CGRectMake(0, 0, targetWidth, targetHeight), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
-    UIImage* newImage = [UIImage imageWithCGImage:ref];
+    UIImage* newImage = [UIImage imageWithCGImage:ref scale:sourceImage.scale orientation:sourceImage.imageOrientation];
     
     CGContextRelease(bitmap);
     CGImageRelease(ref);
@@ -77,27 +79,29 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
 - (UIImage*)scaleToMaxSide:(CGFloat)side
 {
     UIImage* sourceImage = self;
-    CGFloat scale = (side / MAX(sourceImage.size.width, sourceImage.size.height));
-    if (scale >= 1.0) {
+    if (MAX(sourceImage.size.width, sourceImage.size.height) <= side) {
         return self;
     }
-    
-    CGFloat targetW = (sourceImage.size.width * scale);
-    CGFloat targetH = (sourceImage.size.height * scale);
     
     CGImageRef imageRef = [sourceImage CGImage];
     CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
     CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
+    size_t sourceW = CGImageGetWidth(imageRef);
+    size_t sourceH = CGImageGetHeight(imageRef);
     
     if (bitmapInfo == kCGImageAlphaNone) {
         bitmapInfo = kCGImageAlphaNoneSkipLast;
     }
     
-    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetW, targetH, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+    CGFloat targetSide = side * sourceImage.scale;
+    CGFloat scale = (targetSide / MAX(sourceW, sourceH));
+    CGFloat targetW = (sourceW * scale);
+    CGFloat targetH = (sourceH * scale);
     
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetW, targetH, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
     CGContextDrawImage(bitmap, CGRectMake(0, 0, targetW, targetH), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
-    UIImage* newImage = [UIImage imageWithCGImage:ref];
+    UIImage* newImage = [UIImage imageWithCGImage:ref scale:sourceImage.scale orientation:sourceImage.imageOrientation];
     
     CGContextRelease(bitmap);
     CGImageRelease(ref);

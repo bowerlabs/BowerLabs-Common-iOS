@@ -12,6 +12,10 @@
 
 - (id)firstObject;
 
+- (id)lastObject;
+
+- (NSArray*)headObjects;
+
 - (NSArray*)tailObjects;
 
 - (NSArray*)arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map;
@@ -27,5 +31,8 @@
 - (NSArray*)arrayByReplacingObjectAtIndex:(NSUInteger)index withObject:(id)object;
 
 - (NSArray*)arrayByRemovingObjectAtIndex:(NSUInteger)index;
+
+- (NSString*)componentsJoinedByString:(NSString*)separator1
+                   lastJoinedByString:(NSString*)separator2;
 
 @end

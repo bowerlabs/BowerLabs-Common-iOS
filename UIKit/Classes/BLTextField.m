@@ -24,14 +24,14 @@
     return CGRectMake(bounds.origin.x + self.contentInsets.left,
                       bounds.origin.y + self.contentInsets.top,
                       bounds.size.width - self.contentInsets.left - self.contentInsets.right,
-                      bounds.size.width - self.contentInsets.top - self.contentInsets.bottom);
+                      bounds.size.height - self.contentInsets.top - self.contentInsets.bottom);
 }
 
 - (CGRect)editingRectForBounds:(CGRect)bounds {
     return CGRectMake(bounds.origin.x + self.contentInsets.left,
                       bounds.origin.y + self.contentInsets.top,
                       bounds.size.width - self.contentInsets.left - self.contentInsets.right,
-                      bounds.size.width - self.contentInsets.top - self.contentInsets.bottom);
+                      bounds.size.height - self.contentInsets.top - self.contentInsets.bottom);
 }
 
 @end

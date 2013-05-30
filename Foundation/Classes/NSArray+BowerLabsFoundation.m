@@ -15,6 +15,16 @@
     return (self.count > 0 ? [self objectAtIndex:0] : nil);
 }
 
+- (id)lastObject
+{
+    return (self.count > 0 ? [self objectAtIndex:(self.count - 1)] : nil);
+}
+
+- (NSArray*)headObjects
+{
+    return (self.count > 1 ? [self subarrayWithRange:NSMakeRange(0, self.count - 1)] : nil);
+}
+
 - (NSArray*)tailObjects
 {
     return (self.count > 1 ? [self subarrayWithRange:NSMakeRange(1, self.count - 1)] : nil);
@@ -119,6 +129,26 @@
     NSMutableArray* array = [NSMutableArray arrayWithArray:self];
     [array removeObjectAtIndex:index];
     return array;
+}
+
+- (NSString*)componentsJoinedByString:(NSString*)separator1
+                   lastJoinedByString:(NSString*)separator2
+{
+    switch (self.count) {
+        case 0:
+            return @"";
+        
+        case 1:
+            return self.firstObject;
+            
+        case 2:
+            return [self componentsJoinedByString:separator2];
+            
+        default: {
+            NSArray* a = @[ [[self headObjects] componentsJoinedByString:separator1], self.lastObject ];
+            return [a componentsJoinedByString:separator2];
+        }
+    }
 }
 
 @end

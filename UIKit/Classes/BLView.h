@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^BLViewDrawRectBlock)(UIView* view, CGRect rect);
+typedef void(^BLViewLayoutSubviewsBlock)();
 
 @interface BLView : UIView
 
 @property (nonatomic, copy) BLViewDrawRectBlock drawRectBlock;
+@property (nonatomic, copy) BLViewLayoutSubviewsBlock layoutSubviewsBlock;
 
 - (id)initWithFrame:(CGRect)frame drawRect:(BLViewDrawRectBlock)drawRectBlock;
 

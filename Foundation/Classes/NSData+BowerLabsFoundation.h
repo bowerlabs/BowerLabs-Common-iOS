@@ -12,4 +12,6 @@
 
 - (NSString*)sha1;
 
+- (NSString*)base64;
+
 @end

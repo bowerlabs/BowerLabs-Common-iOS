@@ -27,6 +27,8 @@
     
     [self.layer addSublayer:maskLayer];
     self.layer.mask = maskLayer;
+    
+    self.contentMode = UIViewContentModeRedraw;
 }
 
 - (CGPoint)centerBounds

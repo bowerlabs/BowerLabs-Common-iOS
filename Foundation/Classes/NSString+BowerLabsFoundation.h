@@ -18,6 +18,8 @@
 - (NSString*)trimWhitespace;
 - (NSString*)nilForEmptyString;
 
+- (NSString*)stringByRemovingCharactersInSet:(NSCharacterSet*)characterSet;
+
 - (NSString*)formatPhoneNumber;
 
 - (NSDate*)dateValue;

@@ -20,6 +20,16 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    if (self.layoutSubviewsBlock) {
+        self.layoutSubviewsBlock();
+    }
+    else {
+        [super layoutSubviews];
+    }
+}
+
 - (void)drawRect:(CGRect)rect
 {
     if (self.drawRectBlock) {
