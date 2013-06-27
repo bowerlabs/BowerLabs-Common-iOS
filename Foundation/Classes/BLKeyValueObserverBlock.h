@@ -6,4 +6,4 @@
 //  Copyright (c) 2013 Bower Labs Inc. All rights reserved.
 //
 
-typedef void(^BLKeyValueObserverBlock)(NSDictionary* change);
+typedef void(^BLKeyValueObserverBlock)(__weak id weakSelf, id oldValue, id newValue);

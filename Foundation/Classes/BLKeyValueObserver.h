@@ -12,6 +12,4 @@
 
 @interface BLKeyValueObserver : NSObject
 
-- (void)cancel;
-
 @end

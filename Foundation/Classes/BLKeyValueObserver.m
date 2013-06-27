@@ -14,7 +14,7 @@
 
 @property (nonatomic, copy) BLKeyValueObserverBlock block;
 @property (nonatomic, strong) NSString* keyPath;
-@property (nonatomic, strong) id observedObject;
+@property (nonatomic, weak) id observedObject;
 
 @end
 
@@ -37,19 +37,12 @@
     return self;
 }
 
-- (void)dealloc
-{
-    if (self.observedObject) {
-        NSString* objectType = [[self.observedObject class] description];
-        NSLog(@"Key-value observer wasn't cancelled for %@ with key-path: %@", objectType, self.keyPath);
-        [self cancel];
-    }
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (self.block) {
-        self.block(change);
+        id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
+        id newValue = [change objectForKey:NSKeyValueChangeNewKey];
+        self.block(self.observedObject, oldValue, newValue);
     }
 }
 

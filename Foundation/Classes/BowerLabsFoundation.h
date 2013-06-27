@@ -23,6 +23,7 @@
 #import "NSObject+BowerLabsFoundation.h"
 #import "NSOperationQueue+BowerLabsFoundation.h"
 #import "NSString+BowerLabsFoundation.h"
+#import "NSTimer+BowerLabsFoundation.h"
 
 NSString* mangleKeyName(Class c, NSString* key);
 

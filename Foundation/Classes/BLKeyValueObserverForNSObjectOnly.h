@@ -16,4 +16,6 @@
                      options:(NSKeyValueObservingOptions)options
                        block:(BLKeyValueObserverBlock)block;
 
+- (void)cancel;
+
 @end

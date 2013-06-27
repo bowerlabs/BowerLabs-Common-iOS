@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F19C7FE177CBB9D0089DCAC /* BLSpringboardCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F19C7FD177CBB9C0089DCAC /* BLSpringboardCollectionViewFlowLayout.m */; };
+		3F19C801177CBBB00089DCAC /* BLSpringboardCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F19C800177CBBB00089DCAC /* BLSpringboardCollectionView.m */; };
+		3F19C804177CBBF80089DCAC /* BLSpringboardCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F19C803177CBBF70089DCAC /* BLSpringboardCollectionViewLayoutAttributes.m */; };
+		3F19C807177CC6330089DCAC /* BLSpringboardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F19C806177CC6330089DCAC /* BLSpringboardCollectionViewCell.m */; };
 		3F2FE15216AEDDAA00F58ABB /* BLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE13C16AEDDAA00F58ABB /* BLActionSheet.m */; };
 		3F2FE15316AEDDAA00F58ABB /* BLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE13E16AEDDAA00F58ABB /* BLAlertView.m */; };
 		3F2FE15416AEDDAA00F58ABB /* BLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE14016AEDDAA00F58ABB /* BLButton.m */; };
@@ -30,6 +34,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F19C7FC177CBB9C0089DCAC /* BLSpringboardCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSpringboardCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		3F19C7FD177CBB9C0089DCAC /* BLSpringboardCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSpringboardCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		3F19C7FF177CBBB00089DCAC /* BLSpringboardCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSpringboardCollectionView.h; sourceTree = "<group>"; };
+		3F19C800177CBBB00089DCAC /* BLSpringboardCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSpringboardCollectionView.m; sourceTree = "<group>"; };
+		3F19C802177CBBF70089DCAC /* BLSpringboardCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSpringboardCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		3F19C803177CBBF70089DCAC /* BLSpringboardCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSpringboardCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		3F19C805177CC6330089DCAC /* BLSpringboardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSpringboardCollectionViewCell.h; sourceTree = "<group>"; };
+		3F19C806177CC6330089DCAC /* BLSpringboardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSpringboardCollectionViewCell.m; sourceTree = "<group>"; };
 		3F2FE13B16AEDDAA00F58ABB /* BLActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLActionSheet.h; sourceTree = "<group>"; };
 		3F2FE13C16AEDDAA00F58ABB /* BLActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLActionSheet.m; sourceTree = "<group>"; };
 		3F2FE13D16AEDDAA00F58ABB /* BLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAlertView.h; sourceTree = "<group>"; };
@@ -97,6 +109,14 @@
 				3F988A5916AF6810006D810D /* BLMarginLabel.m */,
 				3FCC3B211756838000D17923 /* BLScrollingTabBar.h */,
 				3FCC3B221756838000D17923 /* BLScrollingTabBar.m */,
+				3F19C7FF177CBBB00089DCAC /* BLSpringboardCollectionView.h */,
+				3F19C800177CBBB00089DCAC /* BLSpringboardCollectionView.m */,
+				3F19C805177CC6330089DCAC /* BLSpringboardCollectionViewCell.h */,
+				3F19C806177CC6330089DCAC /* BLSpringboardCollectionViewCell.m */,
+				3F19C7FC177CBB9C0089DCAC /* BLSpringboardCollectionViewFlowLayout.h */,
+				3F19C7FD177CBB9C0089DCAC /* BLSpringboardCollectionViewFlowLayout.m */,
+				3F19C802177CBBF70089DCAC /* BLSpringboardCollectionViewLayoutAttributes.h */,
+				3F19C803177CBBF70089DCAC /* BLSpringboardCollectionViewLayoutAttributes.m */,
 				3FD2BC2916C3055400353AF7 /* BLTextField.h */,
 				3FD2BC2A16C3055400353AF7 /* BLTextField.m */,
 				3FCC3B0D1754117700D17923 /* BLTopRoundedNavigationBar.h */,
@@ -256,6 +276,10 @@
 				3FFE941D1753C69C00B85B29 /* UIApplication+BowerLabsUIKit.m in Sources */,
 				3FCC3B0F1754117700D17923 /* BLTopRoundedNavigationBar.m in Sources */,
 				3FCC3B231756838000D17923 /* BLScrollingTabBar.m in Sources */,
+				3F19C7FE177CBB9D0089DCAC /* BLSpringboardCollectionViewFlowLayout.m in Sources */,
+				3F19C801177CBBB00089DCAC /* BLSpringboardCollectionView.m in Sources */,
+				3F19C804177CBBF80089DCAC /* BLSpringboardCollectionViewLayoutAttributes.m in Sources */,
+				3F19C807177CC6330089DCAC /* BLSpringboardCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

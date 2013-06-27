@@ -18,8 +18,12 @@ extern id nullForNil(id value);
 
 - (id)nilForNull;
 
-- (BLKeyValueObserver*)addObserverForKeyPath:(NSString*)keyPath
-                                     options:(NSKeyValueObservingOptions)options
-                                       block:(BLKeyValueObserverBlock)block;
+- (id)addObserverForKeyPath:(NSString*)keyPath
+                    options:(NSKeyValueObservingOptions)options
+                      block:(BLKeyValueObserverBlock)block;
+
+- (void)removeObserver:(id)observerRef;
+
+- (void)removeAllObservers;
 
 @end
