@@ -175,6 +175,7 @@ static NSString * const BLCollectionViewKeyPath = @"collectionView";
     
     self.selectedItemIndexPath = newIndexPath;
     
+    // Required.
     [self.dataSource collectionView:self.collectionView itemAtIndexPath:previousIndexPath willMoveToIndexPath:newIndexPath];
     
     __weak typeof(self) weakSelf = self;
@@ -184,7 +185,13 @@ static NSString * const BLCollectionViewKeyPath = @"collectionView";
             [strongSelf.collectionView deleteItemsAtIndexPaths:@[ previousIndexPath ]];
             [strongSelf.collectionView insertItemsAtIndexPaths:@[ newIndexPath ]];
         }
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        if (finished) {
+            if ([self.dataSource respondsToSelector:@selector(collectionView:itemAtIndexPath:didMoveToIndexPath:)]) {
+                [self.dataSource collectionView:self.collectionView itemAtIndexPath:previousIndexPath didMoveToIndexPath:newIndexPath];
+            }
+        }
+    }];
 }
 
 - (void)invalidatesScrollTimer
