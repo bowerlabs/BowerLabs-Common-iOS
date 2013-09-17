@@ -10,6 +10,8 @@
 
 @interface UIImage (BowerLabsUIKit)
 
++ (UIImage*)imageFromColor:(UIColor *)color;
+
 + (UIImage*)resizableImageNamed:(NSString*)imageName withCapInsets:(UIEdgeInsets)insets;
 
 - (UIImage*)squareImageWithSides:(CGFloat)sides;

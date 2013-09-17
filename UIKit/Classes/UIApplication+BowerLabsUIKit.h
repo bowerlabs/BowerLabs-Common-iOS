@@ -14,4 +14,6 @@
 + (BOOL)isPhone;
 + (BOOL)isWidescreen;
 
++ (BOOL)isOS7;
+
 @end

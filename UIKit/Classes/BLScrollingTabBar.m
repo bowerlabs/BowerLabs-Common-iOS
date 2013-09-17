@@ -47,11 +47,22 @@ NSString* const BLScrollingTabBarItemKeyName = @"BLScrollingTabBarItemKeyName";
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    [self updateCollectionView:self.collectionView];
+}
+
 #pragma mark - Collection view
 
 - (void)setupCollectionView:(UICollectionView*)collectionView
 {
     [NSException raise:@"Not Implemented" format:@"[%@ setupCollectionView:]", NSStringFromClass([self class])];
+}
+
+- (void)updateCollectionView:(UICollectionView*)collectionView
+{
 }
 
 #pragma mark - Items

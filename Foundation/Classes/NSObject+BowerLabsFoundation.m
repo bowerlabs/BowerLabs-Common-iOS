@@ -61,6 +61,8 @@ id nullForNil(id value)
         [array addObject:observerRef];
         [mapTable setObject:array forKey:self];
     };
+    
+    return observerRef;
 }
 
 - (void)removeObserver:(BLKeyValueObserver*)observerRef

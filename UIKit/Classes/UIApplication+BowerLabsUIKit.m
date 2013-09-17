@@ -33,4 +33,15 @@
     return [UIScreen mainScreen].bounds.size.height == 568.0;
 }
 
++ (BOOL)isOS7
+{
+    static dispatch_once_t once;
+    static BOOL isIOS7;
+    dispatch_once(&once, ^{
+        isIOS7 = [[UIApplication sharedApplication] respondsToSelector:@selector(backgroundRefreshStatus)];
+    });
+    
+    return isIOS7;
+}
+
 @end

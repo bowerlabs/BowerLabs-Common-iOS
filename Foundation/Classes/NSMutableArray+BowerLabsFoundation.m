@@ -10,6 +10,13 @@
 
 @implementation NSMutableArray (BowerLabsFoundation)
 
+- (void)addObjectIfNotNil:(id)anObject
+{
+    if (anObject) {
+        [self addObject:anObject];
+    }
+}
+
 - (id)removeFirstObject
 {
     if (self.count == 0) {

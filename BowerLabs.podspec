@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.ios.deployment_target = '6.0'
   
-  s.preferred_dependency = 'Foundation'
+  s.default_subspec = 'Foundation'
   
   s.subspec 'Foundation' do |sub|
     sub.source_files = 'Foundation/Classes'
