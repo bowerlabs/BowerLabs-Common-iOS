@@ -12,12 +12,27 @@
 
 - (CGFloat)keyboardHeight 
 {
-    CGRect startFrame;
-    NSValue *startFrameValue = [self.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    if (startFrameValue) {
-        [startFrameValue getValue:&startFrame];
-        return startFrame.size.height;
+    NSValue *value = [self.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    if (value) {
+        CGRect frame = CGRectZero;
+        [value getValue:&frame];
+        return frame.size.height;
     } 
+    else {
+        return 0;
+    }
+}
+
+- (CGFloat)keyboardHeightForOrientation:(UIInterfaceOrientation)orientation
+{
+    NSValue *value = [self.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    if (value) {
+        CGRect frame = CGRectZero;
+        [value getValue:&frame];
+        return (UIInterfaceOrientationIsPortrait(orientation) ?
+                frame.size.height :
+                frame.size.width);
+    }
     else {
         return 0;
     }

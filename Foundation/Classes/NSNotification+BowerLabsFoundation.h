@@ -11,6 +11,7 @@
 @interface NSNotification (BowerLabsFoundation)
 
 - (CGFloat)keyboardHeight;
+- (CGFloat)keyboardHeightForOrientation:(UIInterfaceOrientation)orientation;
 - (NSTimeInterval)keyboardAnimationDuration;
 
 @end
