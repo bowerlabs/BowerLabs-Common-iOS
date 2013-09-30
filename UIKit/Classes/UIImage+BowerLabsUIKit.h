@@ -15,10 +15,13 @@
 + (UIImage*)resizableImageNamed:(NSString*)imageName withCapInsets:(UIEdgeInsets)insets;
 
 - (UIImage*)squareImageWithSides:(CGFloat)sides;
+- (UIImage*)squareImageWithSides:(CGFloat)sides scale:(CGFloat)scale;
 
 - (UIImage*)scaleToSize:(CGSize)targetSize;
+- (UIImage*)scaleToSize:(CGSize)targetSize scale:(CGFloat)scale;
 
 - (UIImage*)scaleToMaxSide:(CGFloat)side;
+- (UIImage*)scaleToMaxSide:(CGFloat)side scale:(CGFloat)scale;
 
 - (UIImage *)fixOrientation;
 
