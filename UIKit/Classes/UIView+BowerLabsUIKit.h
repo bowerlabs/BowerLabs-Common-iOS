@@ -14,4 +14,8 @@
 
 - (CGPoint)centerBounds;
 
+- (void)bottomAlignInSuperview;
+
+- (void)bottomAlighInSuperviewWithHeight:(CGFloat)height;
+
 @end

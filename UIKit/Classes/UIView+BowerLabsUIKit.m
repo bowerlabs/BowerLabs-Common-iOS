@@ -37,4 +37,16 @@
                        floor(CGRectGetMidY(self.bounds)));
 }
 
+- (void)bottomAlignInSuperview
+{
+    [self bottomAlighInSuperviewWithHeight:self.bounds.size.height];
+}
+
+- (void)bottomAlighInSuperviewWithHeight:(CGFloat)height
+{
+    CGFloat y = self.superview.bounds.size.height - height;
+    CGFloat width = self.superview.bounds.size.width;
+    self.frame = CGRectMake(0, y, width, height);
+}
+
 @end
