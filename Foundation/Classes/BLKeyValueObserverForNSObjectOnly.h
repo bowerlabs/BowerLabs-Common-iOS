@@ -11,11 +11,13 @@
 
 @interface BLKeyValueObserver (BLKeyValueObserverForNSObjectOnly)
 
-- (id)initWithObservedObject:(id)observedObject
-                     keyPath:(NSString*)keyPath
-                     options:(NSKeyValueObservingOptions)options
-                       block:(BLKeyValueObserverBlock)block;
+- (void)setObservedObject:(id)observedObject
+                  keyPath:(NSString*)keyPath
+                  options:(NSKeyValueObservingOptions)options
+                    block:(BLKeyValueObserverBlock)block;
 
 - (void)cancel;
+
+- (BOOL)isCancelled;
 
 @end

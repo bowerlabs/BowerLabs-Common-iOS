@@ -20,7 +20,12 @@ extern id nullForNil(id value);
 
 - (id)addObserverForKeyPath:(NSString*)keyPath
                     options:(NSKeyValueObservingOptions)options
-                      block:(BLKeyValueObserverBlock)block;
+                      block:(BLKeyValueObserverBlock)block __attribute__((deprecated));
+
+- (void)addObserverForKeyPath:(NSString*)keyPath
+                      options:(NSKeyValueObservingOptions)options
+                      startup:(BLKeyValueStartupBlock)startupBlock
+                     observer:(BLKeyValueObserverBlock)observerBlock;
 
 - (void)removeObserver:(id)observerRef;
 

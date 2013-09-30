@@ -7,3 +7,4 @@
 //
 
 typedef void(^BLKeyValueObserverBlock)(__weak id weakSelf, id oldValue, id newValue);
+typedef void(^BLKeyValueStartupBlock)(__weak id weakSelf, id ref);
