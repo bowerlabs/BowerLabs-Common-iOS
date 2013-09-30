@@ -27,7 +27,7 @@
             
             // Get the height of the text.
             CGSize textSize = [self.placeholder sizeWithAttributes:attributes];
-            CGFloat dy = floorf((rect.size.height - textSize.height) / 2.0f);
+            CGFloat dy = floor((rect.size.height - textSize.height) / 2.0f);
             if (dy > 0) {
                 rect = CGRectOffset(rect, 0, dy);
             }
