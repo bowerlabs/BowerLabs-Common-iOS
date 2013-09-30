@@ -131,6 +131,16 @@
     return array;
 }
 
+- (NSArray*)arrayBySwappingItemsAtIndex:(NSUInteger)indexA andIndex:(NSUInteger)indexB
+{
+    id objA = [self objectAtIndex:indexA];
+    id objB = [self objectAtIndex:indexB];
+    NSMutableArray* array = [NSMutableArray arrayWithArray:self];
+    [array replaceObjectAtIndex:indexA withObject:objB];
+    [array replaceObjectAtIndex:indexB withObject:objA];
+    return array;
+}
+
 - (NSString*)componentsJoinedByString:(NSString*)separator1
                    lastJoinedByString:(NSString*)separator2
 {

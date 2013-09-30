@@ -32,6 +32,8 @@
 
 - (NSArray*)arrayByRemovingObjectAtIndex:(NSUInteger)index;
 
+- (NSArray*)arrayBySwappingItemsAtIndex:(NSUInteger)indexA andIndex:(NSUInteger)indexB;
+
 - (NSString*)componentsJoinedByString:(NSString*)separator1
                    lastJoinedByString:(NSString*)separator2;
 
