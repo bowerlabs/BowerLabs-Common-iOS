@@ -47,12 +47,12 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     
     CGFloat targetSides = sides * scale;
     CGFloat targetScale = (targetSides / MIN(sourceW, sourceH));
-    CGFloat targetW = (sourceW * targetScale);
-    CGFloat targetH = (sourceH * targetScale);
-    CGFloat targetX = -(targetW - sides) / 2.0;
-    CGFloat targetY = -(targetH - sides) / 2.0;
+    CGFloat targetW = floor(sourceW * targetScale);
+    CGFloat targetH = floor(sourceH * targetScale);
+    CGFloat targetX = -floor((targetW - targetSides) / 2.0);
+    CGFloat targetY = -floor((targetH - targetSides) / 2.0);
     
-    CGContextRef bitmap = CGBitmapContextCreate(NULL, sides, sides, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetSides, targetSides, CGImageGetBitsPerComponent(imageRef), 0, colorSpaceInfo, bitmapInfo);
     CGContextDrawImage(bitmap, CGRectMake(targetX, targetY, targetW, targetH), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
     UIImage* newImage = [UIImage imageWithCGImage:ref scale:scale orientation:sourceImage.imageOrientation];
@@ -79,7 +79,7 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     CGFloat targetWidth = targetSize.width * scale;
     CGFloat targetHeight = targetSize.height * scale;
     
-    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), 0, colorSpaceInfo, bitmapInfo);
     CGContextDrawImage(bitmap, CGRectMake(0, 0, targetWidth, targetHeight), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
     UIImage* newImage = [UIImage imageWithCGImage:ref scale:scale orientation:sourceImage.imageOrientation];
@@ -113,7 +113,7 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     CGFloat targetW = (sourceW * targetScale);
     CGFloat targetH = (sourceH * targetScale);
     
-    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetW, targetH, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, targetW, targetH, CGImageGetBitsPerComponent(imageRef), 0, colorSpaceInfo, bitmapInfo);
     CGContextDrawImage(bitmap, CGRectMake(0, 0, targetW, targetH), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
     UIImage* newImage = [UIImage imageWithCGImage:ref scale:scale orientation:sourceImage.imageOrientation];
@@ -202,6 +202,17 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     CGContextRelease(ctx);
     CGImageRelease(cgimg);
     return img;
+}
+
+- (UIImage*)setRetinaScaleIfNeeded
+{
+    if (self.scale == [UIScreen mainScreen].scale) {
+        return self;
+    }
+    
+    return [UIImage imageWithCGImage:[self CGImage]
+                               scale:[UIScreen mainScreen].scale
+                         orientation:self.imageOrientation];
 }
 
 @end

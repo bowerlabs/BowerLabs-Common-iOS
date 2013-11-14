@@ -10,6 +10,8 @@
 #define BowerLabsFoundation_h
 
 #import "BLBlockOperation.h"
+#import "BLError.h"
+#import "BLHttpResponseHandler.h"
 #import "BLKeyValueObserver.h"
 #import "BLLocalization.h"
 #import "BLOperationHelpers.h"

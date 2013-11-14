@@ -10,12 +10,24 @@
 
 @interface UIView (BowerLabsUIKit)
 
+- (void)setFrameWithCenter:(CGPoint)pt size:(CGSize)size;
+
+- (CGPoint)convertUnitPoint:(CGPoint)unitPt;
+
 - (void)applyRoundedTopCornersWithRadius:(CGFloat)radius;
 
 - (CGPoint)centerBounds;
 
 - (void)bottomAlignInSuperview;
+- (void)bottomAlignInSuperviewWithHeight:(CGFloat)height;
 
-- (void)bottomAlighInSuperviewWithHeight:(CGFloat)height;
+- (void)topAlignInSuperview;
+- (void)topAlignInSuperviewWithHeight:(CGFloat)height;
+
+- (void)topRightAlignInSuperView;
+- (void)topRightAlignInSuperViewWithSize:(CGSize)size;
+
+- (void)topLeftAlignInSuperView;
+- (void)topLeftAlignInSuperViewWithSize:(CGSize)size;
 
 @end

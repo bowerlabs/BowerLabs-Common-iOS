@@ -32,9 +32,16 @@
 
 - (NSArray*)arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map
 {
-    NSMutableArray* mappedArray = [NSMutableArray arrayWithCapacity:self.count];
+    __block NSMutableArray* mappedArray = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [mappedArray addObject:map(obj, idx, stop)];
+        obj = map(obj, idx, stop);
+        if (nil == obj) {
+            mappedArray = nil;
+            *stop = YES;
+        }
+        else {
+            [mappedArray addObject:obj];
+        }
     }];
     
     return mappedArray;
@@ -159,6 +166,35 @@
             return [a componentsJoinedByString:separator2];
         }
     }
+}
+
+- (id)firstObjectMatchingFilter:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter
+{
+    if (!filter) {
+        return nil;
+    }
+    
+    __block id result = nil;
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if (filter(obj, idx, stop)) {
+            result = obj;
+            *stop = YES;
+        }
+    }];
+    
+    return result;
+}
+
+- (NSArray*)arrayByFilteringValuesUsing:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter
+{
+    __block NSMutableArray* result = [NSMutableArray array];
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if (filter(obj, idx, stop)) {
+            [result addObject:obj];
+        }
+    }];
+    
+    return result;
 }
 
 @end

@@ -11,5 +11,6 @@
 @interface BLMarginLabel : UILabel
 
 @property (nonatomic, assign) UIEdgeInsets margins;
+@property (nonatomic, assign) BOOL automaticallySetPreferredMaxLayoutWidth;
 
 @end

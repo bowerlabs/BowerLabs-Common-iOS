@@ -12,6 +12,19 @@
 
 @implementation UIView (BowerLabsUIKit)
 
+- (void)setFrameWithCenter:(CGPoint)pt size:(CGSize)size
+{
+    self.frame = CGRectMake(pt.x - (size.width / 2),
+                            pt.y - (size.height / 2),
+                            size.width,
+                            size.height);   
+}
+
+- (CGPoint)convertUnitPoint:(CGPoint)unitPt
+{
+    return CGPointMake(unitPt.x * self.bounds.size.width, unitPt.y * self.bounds.size.height);
+}
+
 - (void)applyRoundedTopCornersWithRadius:(CGFloat)radius
 {
     // Round corners of the navigation bar.
@@ -39,14 +52,46 @@
 
 - (void)bottomAlignInSuperview
 {
-    [self bottomAlighInSuperviewWithHeight:self.bounds.size.height];
+    [self bottomAlignInSuperviewWithHeight:self.bounds.size.height];
 }
 
-- (void)bottomAlighInSuperviewWithHeight:(CGFloat)height
+- (void)bottomAlignInSuperviewWithHeight:(CGFloat)height
 {
     CGFloat y = self.superview.bounds.size.height - height;
     CGFloat width = self.superview.bounds.size.width;
     self.frame = CGRectMake(0, y, width, height);
+}
+
+- (void)topAlignInSuperview
+{
+    [self topAlignInSuperviewWithHeight:self.bounds.size.height];
+}
+
+- (void)topAlignInSuperviewWithHeight:(CGFloat)height
+{
+    CGFloat width = self.superview.bounds.size.width;
+    self.frame = CGRectMake(0, 0, width, height);
+}
+
+- (void)topRightAlignInSuperView
+{
+    [self topRightAlignInSuperViewWithSize:self.bounds.size];
+}
+
+- (void)topRightAlignInSuperViewWithSize:(CGSize)size
+{
+    CGFloat x = self.superview.bounds.size.width - size.width;
+    self.frame = CGRectMake(x, 0, size.width, size.height);
+}
+
+- (void)topLeftAlignInSuperView
+{
+    [self topLeftAlignInSuperViewWithSize:self.bounds.size];
+}
+
+- (void)topLeftAlignInSuperViewWithSize:(CGSize)size
+{
+    self.frame = CGRectMake(0, 0, size.width, size.height);
 }
 
 @end

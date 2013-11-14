@@ -14,6 +14,7 @@
 + (NSString*)stringWithData:(NSData*)data encoding:(NSStringEncoding)encoding;
 
 - (NSString*)stringByCapitalizingFirstLetter;
+- (NSString*)stringByLowercasingFirstLetter;
 
 - (NSString*)trimWhitespace;
 - (NSString*)nilForEmptyString;

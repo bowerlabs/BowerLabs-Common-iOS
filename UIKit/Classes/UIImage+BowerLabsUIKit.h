@@ -23,6 +23,8 @@
 - (UIImage*)scaleToMaxSide:(CGFloat)side;
 - (UIImage*)scaleToMaxSide:(CGFloat)side scale:(CGFloat)scale;
 
-- (UIImage *)fixOrientation;
+- (UIImage*)fixOrientation;
+
+- (UIImage*)setRetinaScaleIfNeeded;
 
 @end

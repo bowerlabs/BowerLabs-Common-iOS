@@ -37,4 +37,8 @@
 - (NSString*)componentsJoinedByString:(NSString*)separator1
                    lastJoinedByString:(NSString*)separator2;
 
+- (id)firstObjectMatchingFilter:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter;
+
+- (NSArray*)arrayByFilteringValuesUsing:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter;
+
 @end

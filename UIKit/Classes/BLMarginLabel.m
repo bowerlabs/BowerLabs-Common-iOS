@@ -13,10 +13,11 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        UIEdgeInsets insets = {0, 0, 0, 0};
-        self.margins = insets;
-    }
+    if (!self) return nil;
+
+    UIEdgeInsets insets = {0, 0, 0, 0};
+    self.margins = insets;
+    self.automaticallySetPreferredMaxLayoutWidth = NO;
     
     return self;
 }
@@ -24,6 +25,16 @@
 - (void)drawTextInRect:(CGRect)rect 
 {
     return [super drawTextInRect:UIEdgeInsetsInsetRect(rect, self.margins)];
+}
+
+- (void)setBounds:(CGRect)bounds
+{
+    [super setBounds:bounds];
+    
+    // Helps with autolayout in table view cells.
+    if (self.automaticallySetPreferredMaxLayoutWidth && self.preferredMaxLayoutWidth != bounds.size.width) {
+        self.preferredMaxLayoutWidth = self.bounds.size.width;
+    }
 }
 
 @end

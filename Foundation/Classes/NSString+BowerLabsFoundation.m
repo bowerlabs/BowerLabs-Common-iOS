@@ -42,6 +42,16 @@
                                          withString:[[self substringToIndex:1] capitalizedString]];
 }
 
+- (NSString*)stringByLowercasingFirstLetter
+{
+    if (self.length == 0) {
+        return self;
+    }
+    
+    return [self stringByReplacingCharactersInRange:NSMakeRange(0,1)
+                                         withString:[[self substringToIndex:1] lowercaseString]];
+}
+
 - (NSString*)trimWhitespace
 {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
