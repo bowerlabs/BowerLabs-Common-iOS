@@ -53,6 +53,10 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     CGFloat targetY = -floor((targetH - targetSides) / 2.0);
     
     CGContextRef bitmap = CGBitmapContextCreate(NULL, targetSides, targetSides, CGImageGetBitsPerComponent(imageRef), 0, colorSpaceInfo, bitmapInfo);
+    if (!bitmap) {
+        return nil;
+    }
+    
     CGContextDrawImage(bitmap, CGRectMake(targetX, targetY, targetW, targetH), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
     UIImage* newImage = [UIImage imageWithCGImage:ref scale:scale orientation:sourceImage.imageOrientation];
@@ -80,6 +84,10 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     CGFloat targetHeight = targetSize.height * scale;
     
     CGContextRef bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), 0, colorSpaceInfo, bitmapInfo);
+    if (!bitmap) {
+        return nil;
+    }
+    
     CGContextDrawImage(bitmap, CGRectMake(0, 0, targetWidth, targetHeight), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
     UIImage* newImage = [UIImage imageWithCGImage:ref scale:scale orientation:sourceImage.imageOrientation];
@@ -114,6 +122,10 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     CGFloat targetH = (sourceH * targetScale);
     
     CGContextRef bitmap = CGBitmapContextCreate(NULL, targetW, targetH, CGImageGetBitsPerComponent(imageRef), 0, colorSpaceInfo, bitmapInfo);
+    if (!bitmap) {
+        return nil;
+    }
+    
     CGContextDrawImage(bitmap, CGRectMake(0, 0, targetW, targetH), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
     UIImage* newImage = [UIImage imageWithCGImage:ref scale:scale orientation:sourceImage.imageOrientation];
@@ -181,6 +193,10 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
                                              CGImageGetBitsPerComponent(self.CGImage), 0,
                                              CGImageGetColorSpace(self.CGImage),
                                              CGImageGetBitmapInfo(self.CGImage));
+    if (!ctx) {
+        return nil;
+    }
+    
     CGContextConcatCTM(ctx, transform);
     switch (self.imageOrientation) {
         case UIImageOrientationLeft:
