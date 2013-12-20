@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_OPTIONS(NSInteger, BLPhoneNumberFormatOptions) {
+    BLPhoneNumberFormatOption10DigitNorthAmerican = 1 << 0,
+    BLPhoneNumberFormatOption11DigitNorthAmerican = 1 << 1
+};
+
+extern BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault;
+
 @interface NSString (BowerLabsFoundation)
 
 + (NSString*)stringWithUUID;
@@ -19,9 +26,12 @@
 - (NSString*)trimWhitespace;
 - (NSString*)nilForEmptyString;
 
+- (NSString*)bl_trimTrailingNewlines;
+
 - (NSString*)stringByRemovingCharactersInSet:(NSCharacterSet*)characterSet;
 
 - (NSString*)formatPhoneNumber;
+- (NSString*)bl_formatPhoneNumberWithOptions:(BLPhoneNumberFormatOptions)options;
 
 - (NSDate*)dateValue;
 

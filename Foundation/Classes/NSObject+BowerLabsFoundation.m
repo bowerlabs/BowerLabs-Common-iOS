@@ -22,6 +22,18 @@ id nullForNil(id value)
 
 @implementation NSObject (BowerLabsFoundation)
 
+- (NSString*)bl_stringValue
+{
+    if ([self isKindOfClass:[NSString class]]) {
+        return (NSString*) self;
+    }
+    else if ([self isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber*)self stringValue];
+    }
+    
+    return nil;
+}
+
 - (id)nilForNull
 {
     return ([self isMemberOfClass:[NSNull class]] ? nil : self);

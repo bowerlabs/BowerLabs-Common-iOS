@@ -37,4 +37,18 @@
     }
 }
 
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    NSStringDrawingOptions options = (NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading);
+    CGSize boundingTextSize = CGSizeMake(MAX(0, size.width - self.margins.left - self.margins.right),
+                                         MAX(0, size.height - self.margins.top - self.margins.bottom));
+    CGSize boundingSize = [self.attributedText boundingRectWithSize:boundingTextSize
+                                                            options:options
+                                                            context:nil].size;
+    CGFloat width = ceil(boundingSize.width + self.margins.left + self.margins.right);
+    CGFloat height = ceil(boundingSize.height + self.margins.top + self.margins.bottom);
+    
+    return CGSizeMake(MAX(0, width), MAX(0, height));
+}
+
 @end

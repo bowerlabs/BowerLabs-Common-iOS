@@ -30,6 +30,16 @@
     return (self.count > 1 ? [self subarrayWithRange:NSMakeRange(1, self.count - 1)] : nil);
 }
 
+- (NSArray*)subarrayFromIndex:(NSUInteger)idx
+{
+    if (idx >= self.count) {
+        return @[];
+    }
+    
+    NSUInteger len = self.count - idx;
+    return [self subarrayWithRange:NSMakeRange(idx, len)];
+}
+
 - (NSArray*)arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map
 {
     __block NSMutableArray* mappedArray = [NSMutableArray arrayWithCapacity:self.count];
@@ -114,6 +124,16 @@
     NSArray* array2 = [self subarrayWithRange:NSMakeRange(shift, self.count - shift)];
     
     return [array2 arrayByAddingObjectsFromArray:array1];
+}
+
+- (NSArray*)arrayByRemovingObject:(id)object
+{
+    NSUInteger idx = [self indexOfObject:object];
+    if (idx == NSNotFound) {
+        return self;
+    }
+    
+    return [self arrayByRemovingObjectAtIndex:idx];
 }
 
 - (NSArray*)arrayByInsertingObject:(id)object atIndex:(NSUInteger)index

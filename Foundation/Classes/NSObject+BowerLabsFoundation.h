@@ -31,4 +31,6 @@ extern id nullForNil(id value);
 
 - (void)removeAllObservers;
 
+- (NSString*)bl_stringValue;
+
 @end

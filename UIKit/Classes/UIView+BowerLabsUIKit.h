@@ -30,4 +30,6 @@
 - (void)topLeftAlignInSuperView;
 - (void)topLeftAlignInSuperViewWithSize:(CGSize)size;
 
+- (UIViewController*)firstAvailableViewController;
+
 @end

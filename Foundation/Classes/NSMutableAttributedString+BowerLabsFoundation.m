@@ -12,8 +12,10 @@
 
 - (void)appendString:(NSString*)str attributes:(NSDictionary*)attributes
 {
-    NSAttributedString* attributedString = [[NSAttributedString alloc] initWithString:str attributes:attributes];
-    [self appendAttributedString:attributedString];
+    if (str) {
+        NSAttributedString* attributedString = [[NSAttributedString alloc] initWithString:str attributes:attributes];
+        [self appendAttributedString:attributedString];
+    }
 }
 
 @end

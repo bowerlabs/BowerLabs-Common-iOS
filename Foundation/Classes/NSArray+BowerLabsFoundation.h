@@ -18,6 +18,8 @@
 
 - (NSArray*)tailObjects;
 
+- (NSArray*)subarrayFromIndex:(NSUInteger)idx;
+
 - (NSArray*)arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map;
 
 - (NSArray*)splitArrayAtIndex:(NSUInteger)index;
@@ -25,6 +27,8 @@
 - (NSArray*)groupedArrayUsingDescriptors:(NSArray*)sortDescriptors;
 
 - (NSArray*)arrayByShiftingLeft:(NSUInteger)shift;
+
+- (NSArray*)arrayByRemovingObject:(id)object;
 
 - (NSArray*)arrayByInsertingObject:(id)object atIndex:(NSUInteger)index;
 

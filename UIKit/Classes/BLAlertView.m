@@ -72,20 +72,24 @@
 
 #pragma mark - Create and show a BLAlertView
 
-+ (void)showAlertViewWithTitle:(NSString *)title 
-                       message:(NSString *)message
-                     itemTitle:(NSString *)itemTitle
-                     itemBlock:(BLAlertItemBlock)itemBlock
++ (BLAlertView*)showAlertViewWithTitle:(NSString *)title
+                               message:(NSString *)message
+                             itemTitle:(NSString *)itemTitle
+                             itemBlock:(BLAlertItemBlock)itemBlock
 {
-    [[BLAlertView alertViewWithTitle:title message:message itemTitle:itemTitle itemBlock:itemBlock] show];
+    BLAlertView* alertView = [BLAlertView alertViewWithTitle:title message:message itemTitle:itemTitle itemBlock:itemBlock];
+    [alertView show];
+    return alertView;
 }
 
-+ (void)showAlertViewWithTitle:(NSString *)title 
-                       message:(NSString *)message 
-                    cancelItem:(BLAlertItem*)cancelItem
-                    otherItems:(NSArray*)otherItems
++ (BLAlertView*)showAlertViewWithTitle:(NSString *)title
+                               message:(NSString *)message
+                            cancelItem:(BLAlertItem*)cancelItem
+                            otherItems:(NSArray*)otherItems
 {
-    [[BLAlertView alertViewWithTitle:title message:message cancelItem:cancelItem otherItems:otherItems] show];
+    BLAlertView* alertView = [BLAlertView alertViewWithTitle:title message:message cancelItem:cancelItem otherItems:otherItems];
+    [alertView show];
+    return alertView;
 }
 
 #pragma mark - Initialization

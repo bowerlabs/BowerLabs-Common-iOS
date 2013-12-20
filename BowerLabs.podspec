@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   
   s.default_subspec = 'Foundation'
-  
+
   s.subspec 'Foundation' do |sub|
     sub.source_files = 'Foundation/Classes'
     sub.ios.frameworks = 'Foundation', 'CoreFoundation'

@@ -94,4 +94,17 @@
     self.frame = CGRectMake(0, 0, size.width, size.height);
 }
 
+- (UIViewController *)firstAvailableViewController
+{
+    id nextResponder = [self nextResponder];
+    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+        return nextResponder;
+    }
+    else if ([nextResponder isKindOfClass:[UIView class]]) {
+        return [nextResponder firstAvailableViewController];
+    }
+    
+    return nil;
+}
+
 @end

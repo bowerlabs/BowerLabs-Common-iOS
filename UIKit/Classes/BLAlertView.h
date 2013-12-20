@@ -32,15 +32,15 @@ typedef void(^BLAlertItemBlock)();
                           itemTitle:(NSString *)itemTitle
                           itemBlock:(BLAlertItemBlock)itemBlock;
 
-+ (void)showAlertViewWithTitle:(NSString *)title 
-                       message:(NSString *)message
-                     itemTitle:(NSString *)itemTitle
-                     itemBlock:(BLAlertItemBlock)itemBlock;
++ (BLAlertView*)showAlertViewWithTitle:(NSString *)title
+                               message:(NSString *)message
+                             itemTitle:(NSString *)itemTitle
+                             itemBlock:(BLAlertItemBlock)itemBlock;
 
-+ (void)showAlertViewWithTitle:(NSString *)title 
-                       message:(NSString *)message 
-                    cancelItem:(BLAlertItem*)cancelItem
-                    otherItems:(NSArray*)otherItems;
++ (BLAlertView*)showAlertViewWithTitle:(NSString *)title
+                               message:(NSString *)message
+                            cancelItem:(BLAlertItem*)cancelItem
+                            otherItems:(NSArray*)otherItems;
 
 - (id)initWithTitle:(NSString *)title 
             message:(NSString *)message 
