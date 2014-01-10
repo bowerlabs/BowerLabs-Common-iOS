@@ -29,4 +29,26 @@
 
 NSString* mangleKeyName(Class c, NSString* key);
 
+/**
+ Provides the ability to verify key paths at compile time.
+ Source: https://gist.github.com/kyleve/8213806
+ 
+ If "keyPath" does not exist, a compile-time error will be generated.
+ 
+ Example:
+ // Verifies "isFinished" exists on "operation".
+ NSString *key = BLKeyPath(operation, isFinished);
+ 
+ // Verifies "isFinished" exists on self.
+ NSString *key = BLSelfKeyPath(isFinished);
+ 
+ // Verifies "isFinished" exists on instances of NSOperation.
+ NSString *key = BLTypedKeyPath(NSOperation, isFinished);
+ */
+#define BLKeyPath(object, keyPath) ({ if (NO) { (void)((object).keyPath); } @#keyPath; })
+
+#define BLSelfKeyPath(keyPath) BLKeyPath(self, keyPath)
+#define BLTypedKeyPath(ObjectClass, keyPath) BLKeyPath(((ObjectClass *)nil), keyPath)
+#define BLProtocolKeyPath(Protocol, keyPath) BLKeyPath(((id <Protocol>)nil), keyPath)
+
 #endif
