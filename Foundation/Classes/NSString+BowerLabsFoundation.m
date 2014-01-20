@@ -179,4 +179,11 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
     return [NSDate dateWithRFCFormattedString:self];
 }
 
+- (NSNumber*)bl_numberValue
+{
+    NSNumberFormatter* f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    return [f numberFromString:self];
+}
+
 @end

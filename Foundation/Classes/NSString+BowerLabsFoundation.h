@@ -35,4 +35,6 @@ extern BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault;
 
 - (NSDate*)dateValue;
 
+- (NSNumber*)bl_numberValue;
+
 @end
