@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 // Detect the larger iPhone.
-inline BOOL BLFoundationIsIPhone5()
+inline static BOOL BLFoundationIsIPhone5()
 {
     static dispatch_once_t once;
     static BOOL isIPhone5;
@@ -20,7 +20,7 @@ inline BOOL BLFoundationIsIPhone5()
 }
 
 // Detect iOS 7.
-inline BOOL BLFoundationIsIOS7OrLater()
+inline static BOOL BLFoundationIsIOS7OrLater()
 {
     static dispatch_once_t once;
     static BOOL isIOS7OrLater;
@@ -31,7 +31,7 @@ inline BOOL BLFoundationIsIOS7OrLater()
 }
 
 // Detect iPad.
-inline BOOL BLFoundationIsIPad()
+inline static BOOL BLFoundationIsIPad()
 {
 #ifdef UI_USER_INTERFACE_IDIOM
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
@@ -41,7 +41,7 @@ inline BOOL BLFoundationIsIPad()
 }
 
 // Detect iPhone
-inline BOOL BLFoundationIsIPhone()
+inline static BOOL BLFoundationIsIPhone()
 {
 #ifdef UI_USER_INTERFACE_IDIOM
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
