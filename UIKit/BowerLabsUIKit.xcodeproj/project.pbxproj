@@ -30,7 +30,6 @@
 		3FCC3B0F1754117700D17923 /* BLTopRoundedNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC3B0E1754117700D17923 /* BLTopRoundedNavigationBar.m */; };
 		3FCC3B231756838000D17923 /* BLScrollingTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC3B221756838000D17923 /* BLScrollingTabBar.m */; };
 		3FD2BC2B16C3055400353AF7 /* BLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2BC2A16C3055400353AF7 /* BLTextField.m */; };
-		3FFE941D1753C69C00B85B29 /* UIApplication+BowerLabsUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE941C1753C69C00B85B29 /* UIApplication+BowerLabsUIKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,8 +77,6 @@
 		3FCC3B221756838000D17923 /* BLScrollingTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLScrollingTabBar.m; sourceTree = "<group>"; };
 		3FD2BC2916C3055400353AF7 /* BLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTextField.h; sourceTree = "<group>"; };
 		3FD2BC2A16C3055400353AF7 /* BLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLTextField.m; sourceTree = "<group>"; };
-		3FFE941B1753C69C00B85B29 /* UIApplication+BowerLabsUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+BowerLabsUIKit.h"; sourceTree = "<group>"; };
-		3FFE941C1753C69C00B85B29 /* UIApplication+BowerLabsUIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+BowerLabsUIKit.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +131,6 @@
 				3F2FE14916AEDDAA00F58ABB /* UINavigationBar+BowerLabsUIKit.m */,
 				3F2FE14A16AEDDAA00F58ABB /* UIView+BowerLabsUIKit.h */,
 				3F2FE14B16AEDDAA00F58ABB /* UIView+BowerLabsUIKit.m */,
-				3FFE941B1753C69C00B85B29 /* UIApplication+BowerLabsUIKit.h */,
-				3FFE941C1753C69C00B85B29 /* UIApplication+BowerLabsUIKit.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -273,7 +268,6 @@
 				3F988A5A16AF6810006D810D /* BLMarginLabel.m in Sources */,
 				3FD2BC2B16C3055400353AF7 /* BLTextField.m in Sources */,
 				3F52EBF916D6B3A2009A51E9 /* BLView.m in Sources */,
-				3FFE941D1753C69C00B85B29 /* UIApplication+BowerLabsUIKit.m in Sources */,
 				3FCC3B0F1754117700D17923 /* BLTopRoundedNavigationBar.m in Sources */,
 				3FCC3B231756838000D17923 /* BLScrollingTabBar.m in Sources */,
 				3F19C7FE177CBB9D0089DCAC /* BLSpringboardCollectionViewFlowLayout.m in Sources */,

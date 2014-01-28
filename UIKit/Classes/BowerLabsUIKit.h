@@ -18,7 +18,6 @@
 #import "BLTextField.h"
 #import "BLTopRoundedNavigationBar.h"
 #import "BLView.h"
-#import "UIApplication+BowerLabsUIKit.h"
 #import "UIBarButtonItem+BowerLabsUIKit.h"
 #import "UIColor+BowerLabsUIKit.h"
 #import "UIImage+BowerLabsUIKit.h"
