@@ -230,4 +230,19 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
                          orientation:self.imageOrientation];
 }
 
+- (UIImage *)rasterizedImageWithTintColor:(UIColor *)color
+{
+    NSParameterAssert(!CGSizeEqualToSize(self.size, CGSizeZero));
+    if (self.renderingMode != UIImageRenderingModeAlwaysTemplate) {
+        return self;
+    }
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    CGRect imageBounds = (CGRect){.size=self.size};
+    [color setFill];
+    [self drawInRect:imageBounds];
+    UIImage *rasterizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return rasterizedImage;
+}
+
 @end

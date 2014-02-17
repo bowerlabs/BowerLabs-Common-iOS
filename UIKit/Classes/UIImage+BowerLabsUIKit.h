@@ -27,4 +27,6 @@
 
 - (UIImage*)setRetinaScaleIfNeeded;
 
+- (UIImage *)rasterizedImageWithTintColor:(UIColor *)color;
+
 @end
