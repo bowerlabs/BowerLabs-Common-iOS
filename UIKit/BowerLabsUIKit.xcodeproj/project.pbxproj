@@ -26,6 +26,7 @@
 		3F2FFB5E16AE444C008BCEA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFB3E16AE444C008BCEA7 /* UIKit.framework */; };
 		3F2FFB5F16AE444C008BCEA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2FFB4016AE444C008BCEA7 /* Foundation.framework */; };
 		3F52EBF916D6B3A2009A51E9 /* BLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F52EBF816D6B3A2009A51E9 /* BLView.m */; };
+		3F7F338218B3F8A9008C2406 /* BowerLabs.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3F7F338118B3F8A9008C2406 /* BowerLabs.podspec */; };
 		3F988A5A16AF6810006D810D /* BLMarginLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F988A5916AF6810006D810D /* BLMarginLabel.m */; };
 		3FCC3B0F1754117700D17923 /* BLTopRoundedNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC3B0E1754117700D17923 /* BLTopRoundedNavigationBar.m */; };
 		3FCC3B231756838000D17923 /* BLScrollingTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC3B221756838000D17923 /* BLScrollingTabBar.m */; };
@@ -69,6 +70,7 @@
 		3F2FFB5C16AE444C008BCEA7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		3F52EBF716D6B3A2009A51E9 /* BLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLView.h; sourceTree = "<group>"; };
 		3F52EBF816D6B3A2009A51E9 /* BLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLView.m; sourceTree = "<group>"; };
+		3F7F338118B3F8A9008C2406 /* BowerLabs.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BowerLabs.podspec; path = ../BowerLabs.podspec; sourceTree = "<group>"; };
 		3F988A5816AF6810006D810D /* BLMarginLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMarginLabel.h; sourceTree = "<group>"; };
 		3F988A5916AF6810006D810D /* BLMarginLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMarginLabel.m; sourceTree = "<group>"; };
 		3FCC3B0D1754117700D17923 /* BLTopRoundedNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTopRoundedNavigationBar.h; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		3F2FFB2F16AE444C008BCEA7 = {
 			isa = PBXGroup;
 			children = (
+				3F7F338118B3F8A9008C2406 /* BowerLabs.podspec */,
 				3F2FE13A16AEDDAA00F58ABB /* Classes */,
 				3F2FE14C16AEDDAA00F58ABB /* Tests */,
 				3F2FFB3D16AE444C008BCEA7 /* Frameworks */,
@@ -230,6 +233,7 @@
 			files = (
 				3F2FE15A16AEDDAA00F58ABB /* BowerLabsUIKitTests-Info.plist in Resources */,
 				3F2FE15C16AEDDAA00F58ABB /* InfoPlist.strings in Resources */,
+				3F7F338218B3F8A9008C2406 /* BowerLabs.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

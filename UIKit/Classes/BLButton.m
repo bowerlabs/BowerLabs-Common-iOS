@@ -10,11 +10,27 @@
 
 @interface BLButton ()
 
+@property (nonatomic, assign, readwrite) BLButtonAlignment bl_buttonAlignment;
+@property (nonatomic, assign, readwrite) CGFloat bl_buttonAlignmentGuide;
+@property (nonatomic, assign, readwrite) CGFloat bl_buttonAlignmentMargin;
+@property (nonatomic, assign, readwrite) CGFloat bl_buttonAlignmentMaxImageDimension;
 @property (nonatomic, copy) BLButtonBlock block;
 
 @end
 
 @implementation BLButton
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (!self) return nil;
+    
+    self.bl_buttonAlignment = BLButtonAlignmentDefault;
+    self.bl_buttonAlignmentGuide = 0;
+    self.bl_buttonAlignmentMargin = 0;
+    
+    return self;
+}
 
 - (void)handleControlEvents:(UIControlEvents)controlEvents block:(BLButtonBlock)block
 {
@@ -27,6 +43,51 @@
     if (self.block) {
         self.block();
     }
+}
+
+- (void)bl_setButtonAlignment:(BLButtonAlignment)buttonAlignment guide:(CGFloat)guide maxImageDimension:(CGFloat)maxImageDimension margin:(CGFloat)margin
+{
+    self.bl_buttonAlignment = buttonAlignment;
+    self.bl_buttonAlignmentGuide = guide;
+    self.bl_buttonAlignmentMargin = margin;
+    self.bl_buttonAlignmentMaxImageDimension = maxImageDimension;
+    
+    [self setNeedsLayout];
+}
+
+- (void)layoutSubviews
+{
+    switch (self.bl_buttonAlignment) {
+        case BLButtonAlignmentImageCenteredAboveTitle: {
+            self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+            self.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+            [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+            
+            self.layer.borderColor = [UIColor greenColor].CGColor;
+            self.layer.borderWidth = 1;
+            
+            self.imageView.layer.borderColor = [UIColor redColor].CGColor;
+            self.imageView.layer.borderWidth = 1;
+            
+            self.titleLabel.layer.borderColor = [UIColor blueColor].CGColor;
+            self.titleLabel.layer.borderWidth = 1;
+            
+            CGSize imageSize = [self imageForState:UIControlStateNormal].size;
+            CGFloat const imageHeight = imageSize.height;
+            CGFloat const imageWidth = imageSize.width;
+            CGFloat const additionalMargin = ceil((self.bl_buttonAlignmentMaxImageDimension - imageHeight) / 2);
+            CGFloat const imageLeftMargin = ceil((self.bounds.size.width - imageWidth) / 2);
+            [self setImageEdgeInsets:UIEdgeInsetsMake(self.bl_buttonAlignmentMargin - self.bl_buttonAlignmentMargin - additionalMargin - imageHeight, imageLeftMargin, 0, 0)];
+            [self setTitleEdgeInsets:UIEdgeInsetsMake(self.bl_buttonAlignmentMargin, -imageWidth, 0, 0)];
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
+    [super layoutSubviews];
 }
 
 @end
