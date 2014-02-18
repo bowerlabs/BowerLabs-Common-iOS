@@ -77,8 +77,8 @@
             CGFloat const imageWidth = imageSize.width;
             CGFloat const additionalMargin = ceil((self.bl_buttonAlignmentMaxImageDimension - imageHeight) / 2);
             CGFloat const imageLeftMargin = ceil((self.bounds.size.width - imageWidth) / 2);
-            [self setImageEdgeInsets:UIEdgeInsetsMake(self.bl_buttonAlignmentMargin - self.bl_buttonAlignmentMargin - additionalMargin - imageHeight, imageLeftMargin, 0, 0)];
-            [self setTitleEdgeInsets:UIEdgeInsetsMake(self.bl_buttonAlignmentMargin, -imageWidth, 0, 0)];
+            [self setImageEdgeInsets:UIEdgeInsetsMake(self.bl_buttonAlignmentGuide - self.bl_buttonAlignmentMargin - additionalMargin - imageHeight, imageLeftMargin, 0, 0)];
+            [self setTitleEdgeInsets:UIEdgeInsetsMake(self.bl_buttonAlignmentGuide, -imageWidth, 0, 0)];
             
             break;
         }
