@@ -63,15 +63,6 @@
             self.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
             [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
             
-            self.layer.borderColor = [UIColor greenColor].CGColor;
-            self.layer.borderWidth = 1;
-            
-            self.imageView.layer.borderColor = [UIColor redColor].CGColor;
-            self.imageView.layer.borderWidth = 1;
-            
-            self.titleLabel.layer.borderColor = [UIColor blueColor].CGColor;
-            self.titleLabel.layer.borderWidth = 1;
-            
             CGSize imageSize = [self imageForState:UIControlStateNormal].size;
             CGFloat const imageHeight = imageSize.height;
             CGFloat const imageWidth = imageSize.width;
