@@ -47,6 +47,21 @@
 
 - (void)bl_setButtonAlignment:(BLButtonAlignment)buttonAlignment guide:(CGFloat)guide maxImageDimension:(CGFloat)maxImageDimension margin:(CGFloat)margin
 {
+    
+    switch (buttonAlignment) {
+        case BLButtonAlignmentImageCenteredAboveTitle: {
+            break;
+        }
+            
+        case BLButtonAlignmentImageCenteredLeftTextCenteredRight: {
+            [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
     self.bl_buttonAlignment = buttonAlignment;
     self.bl_buttonAlignmentGuide = guide;
     self.bl_buttonAlignmentMargin = margin;
@@ -57,19 +72,36 @@
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
+    
     switch (self.bl_buttonAlignment) {
         case BLButtonAlignmentImageCenteredAboveTitle: {
-            self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-            self.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
-            [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+            CGFloat const titleLabelW = self.titleLabel.bounds.size.width;
+            CGFloat const titleLabelH = self.titleLabel.bounds.size.height;
+            CGFloat const titleLabelX = floor((self.bounds.size.width - titleLabelW) / 2);
+            CGFloat const titleLabelY = self.bl_buttonAlignmentGuide;
+            self.titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
             
             CGSize imageSize = [self imageForState:UIControlStateNormal].size;
-            CGFloat const imageHeight = imageSize.height;
-            CGFloat const imageWidth = imageSize.width;
-            CGFloat const additionalMargin = ceil((self.bl_buttonAlignmentMaxImageDimension - imageHeight) / 2);
-            CGFloat const imageLeftMargin = ceil((self.bounds.size.width - imageWidth) / 2);
-            [self setImageEdgeInsets:UIEdgeInsetsMake(self.bl_buttonAlignmentGuide - self.bl_buttonAlignmentMargin - additionalMargin - imageHeight, imageLeftMargin, 0, 0)];
-            [self setTitleEdgeInsets:UIEdgeInsetsMake(self.bl_buttonAlignmentGuide, -imageWidth, 0, 0)];
+            CGFloat const imageViewW = imageSize.width;
+            CGFloat const imageViewH = imageSize.height;
+            CGFloat const additionalMargin = ceil((self.bl_buttonAlignmentMaxImageDimension - imageViewH) / 2);
+            CGFloat const imageViewX = floor((self.bounds.size.width - imageViewW) / 2);
+            CGFloat const imageViewY = titleLabelX - imageViewH - additionalMargin - self.bl_buttonAlignmentMargin;
+            self.imageView.frame = CGRectMake(imageViewX, imageViewY, imageViewW, imageViewH);
+            
+            break;
+        }
+            
+        case BLButtonAlignmentImageCenteredLeftTextCenteredRight: {
+            CGFloat const titleLabelW = self.bounds.size.width - self.bl_buttonAlignmentGuide;
+            CGFloat const titleLabelH = self.bounds.size.height;
+            CGFloat const titleLabelX = self.bl_buttonAlignmentGuide;
+            self.titleLabel.frame = CGRectMake(titleLabelX, 0, titleLabelW, titleLabelH);
+            
+            CGFloat const imageViewW = self.bl_buttonAlignmentGuide;
+            CGFloat const imageViewH = self.bounds.size.height;
+            self.imageView.frame = CGRectMake(0, 0, imageViewW, imageViewH);
             
             break;
         }
@@ -77,8 +109,6 @@
         default:
             break;
     }
-    
-    [super layoutSubviews];
 }
 
 @end

@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSInteger, BLButtonAlignment) {
     BLButtonAlignmentDefault,
-    BLButtonAlignmentImageCenteredAboveTitle
+    BLButtonAlignmentImageCenteredAboveTitle,
+    BLButtonAlignmentImageCenteredLeftTextCenteredRight
 };
 
 typedef void(^BLButtonBlock)();
