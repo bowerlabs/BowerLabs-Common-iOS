@@ -101,6 +101,7 @@
             
             CGFloat const imageViewW = self.bl_buttonAlignmentGuide;
             CGFloat const imageViewH = self.bounds.size.height;
+            self.imageView.contentMode = UIViewContentModeCenter;
             self.imageView.frame = CGRectMake(0, 0, imageViewW, imageViewH);
             
             break;
