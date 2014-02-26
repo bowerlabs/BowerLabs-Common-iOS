@@ -10,6 +10,8 @@
 
 @interface UIView (BowerLabsUIKit)
 
+@property (nonatomic, strong) UIColor* bl_layerBorderColor;
+
 - (void)setFrameWithCenter:(CGPoint)pt size:(CGSize)size;
 
 - (CGPoint)convertUnitPoint:(CGPoint)unitPt;

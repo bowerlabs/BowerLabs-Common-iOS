@@ -12,6 +12,18 @@
 
 @implementation UIView (BowerLabsUIKit)
 
+- (void)setBl_layerBorderColor:(UIColor *)bl_layerBorderColor
+{
+    [self willChangeValueForKey:@"bl_layerBorderColor"];
+    self.layer.borderColor = [bl_layerBorderColor CGColor];
+    [self didChangeValueForKey:@"bl_layerBorderColor"];
+}
+
+- (UIColor*)bl_layerBorderColor
+{
+    return [UIColor colorWithCGColor:self.layer.borderColor];
+}
+
 - (void)setFrameWithCenter:(CGPoint)pt size:(CGSize)size
 {
     self.frame = CGRectMake(pt.x - (size.width / 2),
