@@ -10,8 +10,8 @@
 
 @interface NSMutableArray (BowerLabsFoundation)
 
-- (void)addObjectIfNotNil:(id)anObject;
+- (void)bl_addObjectIfNotNil:(id)anObject;
 
-- (id)removeFirstObject;
+- (id)bl_removeFirstObject;
 
 @end

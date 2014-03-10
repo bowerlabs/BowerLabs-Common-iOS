@@ -10,6 +10,6 @@
 
 @interface NSMutableAttributedString (BowerLabsFoundation)
 
-- (void)appendString:(NSString*)str attributes:(NSDictionary*)attributes;
+- (void)bl_appendString:(NSString*)str attributes:(NSDictionary*)attributes;
 
 @end

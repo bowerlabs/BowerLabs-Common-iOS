@@ -18,12 +18,12 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
 
 @implementation NSString (BowerLabsFoundation)
 
-+ (NSString*)stringWithData:(NSData*)data encoding:(NSStringEncoding)encoding
++ (NSString*)bl_stringWithData:(NSData*)data encoding:(NSStringEncoding)encoding
 {
     return [[NSString alloc] initWithData:data encoding:encoding];
 }
 
-+ (NSString*)stringWithUUID
++ (NSString*)bl_stringWithUUID
 {
     // create a new UUID which you own
     CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
@@ -38,7 +38,7 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
     return [uuidString lowercaseString];
 }
 
-- (NSString*)stringByCapitalizingFirstLetter
+- (NSString*)bl_stringByCapitalizingFirstLetter
 {
     if (self.length == 0) {
         return self;
@@ -48,7 +48,7 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
                                          withString:[[self substringToIndex:1] capitalizedString]];
 }
 
-- (NSString*)stringByLowercasingFirstLetter
+- (NSString*)bl_stringByLowercasingFirstLetter
 {
     if (self.length == 0) {
         return self;
@@ -58,7 +58,7 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
                                          withString:[[self substringToIndex:1] lowercaseString]];
 }
 
-- (NSString*)trimWhitespace
+- (NSString*)bl_trimWhitespace
 {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
@@ -83,12 +83,12 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
     return self;
 }
 
-- (NSString*)nilForEmptyString
+- (NSString*)bl_nilForEmptyString
 {
     return (self.length > 0 ? self : nil);
 }
 
-- (NSString*)stringByRemovingCharactersInSet:(NSCharacterSet*)characterSet
+- (NSString*)bl_stringByRemovingCharactersInSet:(NSCharacterSet*)characterSet
 {
     NSMutableString* mutableString = [NSMutableString stringWithCapacity:self.length];
     for (NSUInteger index = 0; index < self.length; index++) {
@@ -101,7 +101,7 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
     return mutableString;
 }
 
-- (NSString*)formatPhoneNumber
+- (NSString*)bl_formatPhoneNumber
 {
     return [self bl_formatPhoneNumberWithOptions:BLPhoneNumberFormatOptionDefault];
 }
@@ -110,7 +110,7 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
 {
     // Update the source string with the input.
     NSCharacterSet* nonDigitCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-    NSString* digits = [self stringByRemovingCharactersInSet:nonDigitCharacterSet];
+    NSString* digits = [self bl_stringByRemovingCharactersInSet:nonDigitCharacterSet];
 
     if (options & BLPhoneNumberFormatOption11DigitNorthAmerican) {
         // Check for a 1 prefix as the country code.
@@ -174,9 +174,9 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
     return digits;
 }
 
-- (NSDate*)dateValue
+- (NSDate*)bl_dateValue
 {
-    return [NSDate dateWithRFCFormattedString:self];
+    return [NSDate bl_dateWithRFCFormattedString:self];
 }
 
 - (NSNumber*)bl_numberValue

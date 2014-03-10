@@ -14,11 +14,11 @@ typedef void(^BLBlockOperationCompletion)(NSOperation* operation);
 
 @interface BLBlockOperation : NSOperation
 
-+ (BLBlockOperation*)blockOperationWithMain:(BLBlockOperationMain)mainBlock
-                                 completion:(BLBlockOperationCompletion)completionBlock;
-
-+ (BLBlockOperation*)blockOperationWithStartup:(BLBlockOperationStartup)startupBlock
-                                          main:(BLBlockOperationMain)mainBlock
++ (BLBlockOperation*)bl_blockOperationWithMain:(BLBlockOperationMain)mainBlock
                                     completion:(BLBlockOperationCompletion)completionBlock;
+
++ (BLBlockOperation*)bl_blockOperationWithStartup:(BLBlockOperationStartup)startupBlock
+                                             main:(BLBlockOperationMain)mainBlock
+                                       completion:(BLBlockOperationCompletion)completionBlock;
 
 @end

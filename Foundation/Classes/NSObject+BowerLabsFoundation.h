@@ -10,26 +10,26 @@
 
 #import "BLKeyValueObserverBlock.h"
 
-extern id nullForNil(id value);
+extern id bl_nullForNil(id value);
 
 @class BLKeyValueObserver;
 
 @interface NSObject (BowerLabsFoundation)
 
-- (id)nilForNull;
+- (id)bl_nilForNull;
 
-- (id)addObserverForKeyPath:(NSString*)keyPath
-                    options:(NSKeyValueObservingOptions)options
-                      block:(BLKeyValueObserverBlock)block __attribute__((deprecated));
+- (id)bl_addObserverForKeyPath:(NSString*)keyPath
+                       options:(NSKeyValueObservingOptions)options
+                         block:(BLKeyValueObserverBlock)block __attribute__((deprecated));
 
-- (void)addObserverForKeyPath:(NSString*)keyPath
-                      options:(NSKeyValueObservingOptions)options
-                      startup:(BLKeyValueStartupBlock)startupBlock
-                     observer:(BLKeyValueObserverBlock)observerBlock;
+- (void)bl_addObserverForKeyPath:(NSString*)keyPath
+                         options:(NSKeyValueObservingOptions)options
+                         startup:(BLKeyValueStartupBlock)startupBlock
+                        observer:(BLKeyValueObserverBlock)observerBlock;
 
-- (void)removeObserver:(id)observerRef;
+- (void)bl_removeObserver:(id)observerRef;
 
-- (void)removeAllObservers;
+- (void)bl_removeAllObservers;
 
 - (NSString*)bl_stringValue;
 

@@ -12,7 +12,6 @@
 #import "BLBlockOperation.h"
 #import "BLDevice.h"
 #import "BLError.h"
-#import "BLHttpResponseHandler.h"
 #import "BLKeyValueObserver.h"
 #import "BLLocalization.h"
 #import "BLOperationHelpers.h"
@@ -28,7 +27,7 @@
 #import "NSString+BowerLabsFoundation.h"
 #import "NSTimer+BowerLabsFoundation.h"
 
-NSString* mangleKeyName(Class c, NSString* key);
+NSString* bl_mangleKeyName(Class c, NSString* key);
 
 /**
  Provides the ability to verify key paths at compile time.

@@ -17,15 +17,15 @@
 
 @implementation BLBlockOperation
 
-+ (BLBlockOperation*)blockOperationWithMain:(BLBlockOperationMain)mainBlock
-                                 completion:(BLBlockOperationCompletion)completionBlock
++ (BLBlockOperation*)bl_blockOperationWithMain:(BLBlockOperationMain)mainBlock
+                                    completion:(BLBlockOperationCompletion)completionBlock
 {
-    return [self blockOperationWithStartup:nil main:mainBlock completion:completionBlock];
+    return [self bl_blockOperationWithStartup:nil main:mainBlock completion:completionBlock];
 }
 
-+ (BLBlockOperation*)blockOperationWithStartup:(BLBlockOperationStartup)startupBlock
-                                          main:(BLBlockOperationMain)mainBlock
-                                    completion:(BLBlockOperationCompletion)completionBlock
++ (BLBlockOperation*)bl_blockOperationWithStartup:(BLBlockOperationStartup)startupBlock
+                                             main:(BLBlockOperationMain)mainBlock
+                                       completion:(BLBlockOperationCompletion)completionBlock
 {
     BLBlockOperation* operation = [[BLBlockOperation alloc] init];
     operation.blMainBlock = mainBlock;

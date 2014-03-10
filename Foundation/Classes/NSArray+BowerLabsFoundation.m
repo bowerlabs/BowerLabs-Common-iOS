@@ -10,27 +10,27 @@
 
 @implementation NSArray (BowerLabsFoundation)
 
-- (id)firstObject
+- (id)bl_firstObject
 {
     return (self.count > 0 ? [self objectAtIndex:0] : nil);
 }
 
-- (id)lastObject
+- (id)bl_lastObject
 {
     return (self.count > 0 ? [self objectAtIndex:(self.count - 1)] : nil);
 }
 
-- (NSArray*)headObjects
+- (NSArray*)bl_headObjects
 {
     return (self.count > 1 ? [self subarrayWithRange:NSMakeRange(0, self.count - 1)] : nil);
 }
 
-- (NSArray*)tailObjects
+- (NSArray*)bl_tailObjects
 {
     return (self.count > 1 ? [self subarrayWithRange:NSMakeRange(1, self.count - 1)] : nil);
 }
 
-- (NSArray*)subarrayFromIndex:(NSUInteger)idx
+- (NSArray*)bl_subarrayFromIndex:(NSUInteger)idx
 {
     if (idx >= self.count) {
         return @[];
@@ -40,7 +40,7 @@
     return [self subarrayWithRange:NSMakeRange(idx, len)];
 }
 
-- (NSArray*)arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map
+- (NSArray*)bl_arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map
 {
     __block NSMutableArray* mappedArray = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -57,7 +57,7 @@
     return mappedArray;
 }
 
-- (NSArray*)splitArrayAtIndex:(NSUInteger)index
+- (NSArray*)bl_splitArrayAtIndex:(NSUInteger)index
 {
     if (index == NSNotFound || index >= self.count) {
         return @[ self, @[] ];
@@ -69,7 +69,7 @@
         [self subarrayWithRange:NSMakeRange(index, len)] ];
 }
 
-- (NSArray*)groupedArrayUsingDescriptors:(NSArray*)sortDescriptors
+- (NSArray*)bl_groupedArrayUsingDescriptors:(NSArray*)sortDescriptors
 {
     if (self.count == 0) {
         return [NSArray array];
@@ -81,8 +81,8 @@
     id object1 = self.firstObject;
     NSMutableArray* group = [NSMutableArray arrayWithObject:object1];
     NSMutableArray* groups = [NSMutableArray arrayWithObject:group];
-    for (id object2 in self.tailObjects) {
-        NSComparisonResult result = [self compareObject:object1 toObject:object2 usingDescriptors:sortDescriptors];
+    for (id object2 in self.bl_tailObjects) {
+        NSComparisonResult result = [self bl_compareObject:object1 toObject:object2 usingDescriptors:sortDescriptors];
         if (result != NSOrderedSame) {
             group = [NSMutableArray arrayWithObject:object2];
             [groups addObject:group];
@@ -97,7 +97,7 @@
     return groups;
 }
 
-- (NSComparisonResult)compareObject:(id)object1 toObject:(id)object2 usingDescriptors:(NSArray*)sortDescriptors
+- (NSComparisonResult)bl_compareObject:(id)object1 toObject:(id)object2 usingDescriptors:(NSArray*)sortDescriptors
 {
     for (NSSortDescriptor* sortDescriptor in sortDescriptors) {
         NSComparisonResult result = [sortDescriptor compareObject:object1 toObject:object2];
@@ -109,7 +109,7 @@
     return NSOrderedSame;
 }
 
-- (NSArray*)arrayByShiftingLeft:(NSUInteger)shift
+- (NSArray*)bl_arrayByShiftingLeft:(NSUInteger)shift
 {
     if (self.count == 0) {
         return [NSArray array];
@@ -126,17 +126,17 @@
     return [array2 arrayByAddingObjectsFromArray:array1];
 }
 
-- (NSArray*)arrayByRemovingObject:(id)object
+- (NSArray*)bl_arrayByRemovingObject:(id)object
 {
     NSUInteger idx = [self indexOfObject:object];
     if (idx == NSNotFound) {
         return self;
     }
     
-    return [self arrayByRemovingObjectAtIndex:idx];
+    return [self bl_arrayByRemovingObjectAtIndex:idx];
 }
 
-- (NSArray*)arrayByInsertingObject:(id)object atIndex:(NSUInteger)index
+- (NSArray*)bl_arrayByInsertingObject:(id)object atIndex:(NSUInteger)index
 {
     NSMutableArray* array = [NSMutableArray arrayWithCapacity:(self.count + 1)];
     [array addObjectsFromArray:self];
@@ -144,21 +144,21 @@
     return array;
 }
 
-- (NSArray*)arrayByReplacingObjectAtIndex:(NSUInteger)index withObject:(id)object
+- (NSArray*)bl_arrayByReplacingObjectAtIndex:(NSUInteger)index withObject:(id)object
 {
     NSMutableArray* array = [NSMutableArray arrayWithArray:self];
     [array replaceObjectAtIndex:index withObject:object];
     return array;
 }
 
-- (NSArray*)arrayByRemovingObjectAtIndex:(NSUInteger)index
+- (NSArray*)bl_arrayByRemovingObjectAtIndex:(NSUInteger)index
 {
     NSMutableArray* array = [NSMutableArray arrayWithArray:self];
     [array removeObjectAtIndex:index];
     return array;
 }
 
-- (NSArray*)arrayBySwappingItemsAtIndex:(NSUInteger)indexA andIndex:(NSUInteger)indexB
+- (NSArray*)bl_arrayBySwappingItemsAtIndex:(NSUInteger)indexA andIndex:(NSUInteger)indexB
 {
     id objA = [self objectAtIndex:indexA];
     id objB = [self objectAtIndex:indexB];
@@ -168,8 +168,8 @@
     return array;
 }
 
-- (NSString*)componentsJoinedByString:(NSString*)separator1
-                   lastJoinedByString:(NSString*)separator2
+- (NSString*)bl_componentsJoinedByString:(NSString*)separator1
+                      lastJoinedByString:(NSString*)separator2
 {
     switch (self.count) {
         case 0:
@@ -182,13 +182,13 @@
             return [self componentsJoinedByString:separator2];
             
         default: {
-            NSArray* a = @[ [[self headObjects] componentsJoinedByString:separator1], self.lastObject ];
+            NSArray* a = @[ [[self bl_headObjects] componentsJoinedByString:separator1], self.lastObject ];
             return [a componentsJoinedByString:separator2];
         }
     }
 }
 
-- (id)firstObjectMatchingFilter:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter
+- (id)bl_firstObjectMatchingFilter:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter
 {
     if (!filter) {
         return nil;
@@ -205,7 +205,7 @@
     return result;
 }
 
-- (NSArray*)arrayByFilteringValuesUsing:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter
+- (NSArray*)bl_arrayByFilteringValuesUsing:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter
 {
     __block NSMutableArray* result = [NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

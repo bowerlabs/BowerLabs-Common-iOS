@@ -12,10 +12,10 @@
 
 @interface NSOperationQueue (BowerLabsFoundation)
 
-+ (NSOperationQueue*)backgroundQueue;
++ (NSOperationQueue*)bl_backgroundQueue;
 
-- (void)addOperationWithStartup:(BLBlockOperationStartup)startupBlock
-                           main:(BLBlockOperationMain)mainBlock
-                     completion:(BLBlockOperationCompletion)completionBlock;
+- (void)bl_addOperationWithStartup:(BLBlockOperationStartup)startupBlock
+                              main:(BLBlockOperationMain)mainBlock
+                        completion:(BLBlockOperationCompletion)completionBlock;
 
 @end

@@ -10,24 +10,23 @@
 
 @implementation NSOperationQueue (BowerLabsFoundation)
 
-+ (NSOperationQueue*)backgroundQueue
++ (NSOperationQueue*)bl_backgroundQueue
 {
     static dispatch_once_t once;
-    static NSOperationQueue* backgroundQueue;
+    static NSOperationQueue* bl_backgroundQueue;
     dispatch_once(&once, ^{
-        backgroundQueue = [[NSOperationQueue alloc] init];
+        bl_backgroundQueue = [[NSOperationQueue alloc] init];
     });
     
-    return backgroundQueue;
+    return bl_backgroundQueue;
 }
 
 
-- (void)addOperationWithStartup:(BLBlockOperationStartup)startupBlock
-                           main:(BLBlockOperationMain)mainBlock
-                     completion:(BLBlockOperationCompletion)completionBlock
+- (void)bl_addOperationWithStartup:(BLBlockOperationStartup)startupBlock
+                              main:(BLBlockOperationMain)mainBlock
+                        completion:(BLBlockOperationCompletion)completionBlock
 {
-    BLBlockOperation* operation = [BLBlockOperation blockOperationWithMain:mainBlock
-                                                                completion:completionBlock];
+    BLBlockOperation* operation = [BLBlockOperation bl_blockOperationWithMain:mainBlock completion:completionBlock];
     if (startupBlock) {
         startupBlock(operation);
     }

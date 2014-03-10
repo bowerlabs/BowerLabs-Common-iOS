@@ -17,23 +17,23 @@ extern BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault;
 
 @interface NSString (BowerLabsFoundation)
 
-+ (NSString*)stringWithUUID;
-+ (NSString*)stringWithData:(NSData*)data encoding:(NSStringEncoding)encoding;
++ (NSString*)bl_stringWithUUID;
++ (NSString*)bl_stringWithData:(NSData*)data encoding:(NSStringEncoding)encoding;
 
-- (NSString*)stringByCapitalizingFirstLetter;
-- (NSString*)stringByLowercasingFirstLetter;
+- (NSString*)bl_stringByCapitalizingFirstLetter;
+- (NSString*)bl_stringByLowercasingFirstLetter;
 
-- (NSString*)trimWhitespace;
-- (NSString*)nilForEmptyString;
+- (NSString*)bl_trimWhitespace;
+- (NSString*)bl_nilForEmptyString;
 
 - (NSString*)bl_trimTrailingNewlines;
 
-- (NSString*)stringByRemovingCharactersInSet:(NSCharacterSet*)characterSet;
+- (NSString*)bl_stringByRemovingCharactersInSet:(NSCharacterSet*)characterSet;
 
-- (NSString*)formatPhoneNumber;
+- (NSString*)bl_formatPhoneNumber;
 - (NSString*)bl_formatPhoneNumberWithOptions:(BLPhoneNumberFormatOptions)options;
 
-- (NSDate*)dateValue;
+- (NSDate*)bl_dateValue;
 
 - (NSNumber*)bl_numberValue;
 

@@ -10,39 +10,39 @@
 
 @interface NSArray (BowerLabsFoundation)
 
-- (id)firstObject;
+- (id)bl_firstObject;
 
-- (id)lastObject;
+- (id)bl_lastObject;
 
-- (NSArray*)headObjects;
+- (NSArray*)bl_headObjects;
 
-- (NSArray*)tailObjects;
+- (NSArray*)bl_tailObjects;
 
-- (NSArray*)subarrayFromIndex:(NSUInteger)idx;
+- (NSArray*)bl_subarrayFromIndex:(NSUInteger)idx;
 
-- (NSArray*)arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map;
+- (NSArray*)bl_arrayByMappingValuesUsing:(id (^)(id obj, NSUInteger idx, BOOL *stop))map;
 
-- (NSArray*)splitArrayAtIndex:(NSUInteger)index;
+- (NSArray*)bl_splitArrayAtIndex:(NSUInteger)index;
 
-- (NSArray*)groupedArrayUsingDescriptors:(NSArray*)sortDescriptors;
+- (NSArray*)bl_groupedArrayUsingDescriptors:(NSArray*)sortDescriptors;
 
-- (NSArray*)arrayByShiftingLeft:(NSUInteger)shift;
+- (NSArray*)bl_arrayByShiftingLeft:(NSUInteger)shift;
 
-- (NSArray*)arrayByRemovingObject:(id)object;
+- (NSArray*)bl_arrayByRemovingObject:(id)object;
 
-- (NSArray*)arrayByInsertingObject:(id)object atIndex:(NSUInteger)index;
+- (NSArray*)bl_arrayByInsertingObject:(id)object atIndex:(NSUInteger)index;
 
-- (NSArray*)arrayByReplacingObjectAtIndex:(NSUInteger)index withObject:(id)object;
+- (NSArray*)bl_arrayByReplacingObjectAtIndex:(NSUInteger)index withObject:(id)object;
 
-- (NSArray*)arrayByRemovingObjectAtIndex:(NSUInteger)index;
+- (NSArray*)bl_arrayByRemovingObjectAtIndex:(NSUInteger)index;
 
-- (NSArray*)arrayBySwappingItemsAtIndex:(NSUInteger)indexA andIndex:(NSUInteger)indexB;
+- (NSArray*)bl_arrayBySwappingItemsAtIndex:(NSUInteger)indexA andIndex:(NSUInteger)indexB;
 
-- (NSString*)componentsJoinedByString:(NSString*)separator1
-                   lastJoinedByString:(NSString*)separator2;
+- (NSString*)bl_componentsJoinedByString:(NSString*)separator1
+                      lastJoinedByString:(NSString*)separator2;
 
-- (id)firstObjectMatchingFilter:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter;
+- (id)bl_firstObjectMatchingFilter:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter;
 
-- (NSArray*)arrayByFilteringValuesUsing:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter;
+- (NSArray*)bl_arrayByFilteringValuesUsing:(BOOL(^)(id obj, NSUInteger idx, BOOL *stop))filter;
 
 @end

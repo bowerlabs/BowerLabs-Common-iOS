@@ -10,7 +10,7 @@
 
 @implementation NSMutableAttributedString (BowerLabsFoundation)
 
-- (void)appendString:(NSString*)str attributes:(NSDictionary*)attributes
+- (void)bl_appendString:(NSString*)str attributes:(NSDictionary*)attributes
 {
     if (str) {
         NSAttributedString* attributedString = [[NSAttributedString alloc] initWithString:str attributes:attributes];

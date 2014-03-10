@@ -10,7 +10,6 @@
 
 @interface UINavigationBar (BowerLabsUIKit)
 
-- (void)applyShadowWithColor:(UIColor*)color
-                    opacity:(CGFloat)opacity
-                     radius:(CGFloat)radius;
+- (void)bl_applyShadowWithColor:(UIColor*)color opacity:(CGFloat)opacity radius:(CGFloat)radius;
+
 @end

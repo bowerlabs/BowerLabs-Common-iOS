@@ -8,7 +8,7 @@
 
 #import "BLOperationHelpers.h"
 
-void performOnMainThread(BLMainThreadBlock block)
+void bl_performOnMainThread(BLMainThreadBlock block)
 {
     if (!block) {
         return;
@@ -18,11 +18,11 @@ void performOnMainThread(BLMainThreadBlock block)
         block();
     }
     else {
-        performOnMainThreadLater(block);
+        bl_performOnMainThreadLater(block);
     }
 }
 
-void performOnMainThreadLater(BLMainThreadBlock block)
+void bl_performOnMainThreadLater(BLMainThreadBlock block)
 {
     if (!block) {
         return;
@@ -31,7 +31,7 @@ void performOnMainThreadLater(BLMainThreadBlock block)
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
-void performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock block)
+void bl_performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock block)
 {
     if (!block) {
         return;
@@ -40,7 +40,7 @@ void performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock block
     dispatch_after(delay * NSEC_PER_SEC, dispatch_get_main_queue(), block);
 }
 
-void performOnMainThreadAndWait(BLMainThreadBlock block)
+void bl_performOnMainThreadAndWait(BLMainThreadBlock block)
 {
     if (!block) {
         return;
@@ -54,7 +54,7 @@ void performOnMainThreadAndWait(BLMainThreadBlock block)
     }
 }
 
-dispatch_queue_t backgroundQueue()
+dispatch_queue_t bl_backgroundQueue()
 {
     static dispatch_queue_t dispatchQueue;
     static dispatch_once_t oncePredicate;
@@ -65,20 +65,20 @@ dispatch_queue_t backgroundQueue()
     return dispatchQueue;
 }
 
-void performInBackground(BLBackgroundBlock block)
+void bl_performInBackground(BLBackgroundBlock block)
 {
     if (!block) {
         return;
     }
     
-    dispatch_async(backgroundQueue(), block);
+    dispatch_async(bl_backgroundQueue(), block);
 }
 
-void performInBackgroundAfterDelay(NSTimeInterval delay, BLBackgroundBlock block)
+void bl_performInBackgroundAfterDelay(NSTimeInterval delay, BLBackgroundBlock block)
 {
     if (!block) {
         return;
     }
     
-    dispatch_after(delay * NSEC_PER_SEC, backgroundQueue(), block);
+    dispatch_after(delay * NSEC_PER_SEC, bl_backgroundQueue(), block);
 }

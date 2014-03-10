@@ -10,8 +10,8 @@
 
 @interface UIBarButtonItem (BowerLabsUIKit)
 
-+ (UIBarButtonItem*)fixedSpace:(CGFloat)width;
++ (UIBarButtonItem*)bl_fixedSpace:(CGFloat)width;
 
-+ (UIBarButtonItem*)flexibleSpace;
++ (UIBarButtonItem*)bl_flexibleSpace;
 
 @end

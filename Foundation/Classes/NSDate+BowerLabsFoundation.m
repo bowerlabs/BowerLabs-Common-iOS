@@ -10,15 +10,15 @@
 
 @implementation NSDate (BowerLabsFoundation)
 
-+ (NSDate*)dateWithRFCFormattedString:(NSString*)value
++ (NSDate*)bl_dateWithRFCFormattedString:(NSString*)value
 {
     if (!value) {
         return nil;
     }
     
     NSDate* date = nil;
-    if ((date = [self dateWithRFCFormattedStringA:value]) ||
-        (date = [self dateWithRFCFormattedStringB:value]))
+    if ((date = [self bl_dateWithRFCFormattedStringA:value]) ||
+        (date = [self bl_dateWithRFCFormattedStringB:value]))
     {
         return date;
     }
@@ -27,7 +27,7 @@
     return nil;
 }
 
-+ (NSDate*)dateWithRFCFormattedStringA:(NSString*)value
++ (NSDate*)bl_dateWithRFCFormattedStringA:(NSString*)value
 {
     // Create a shared formatter.
     static NSRegularExpression* regex = nil;
@@ -56,7 +56,7 @@
     return nil;
 }
 
-+ (NSDate*)dateWithRFCFormattedStringB:(NSString*)value
++ (NSDate*)bl_dateWithRFCFormattedStringB:(NSString*)value
 {
     // Create a shared formatter.
     static NSRegularExpression* regex = nil;
@@ -89,13 +89,13 @@
     return nil;
 }
 
-+ (NSDate*)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
++ (NSDate*)bl_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    return [self dateWithYear:year month:month day:day calendar:calendar];
+    return [self bl_dateWithYear:year month:month day:day calendar:calendar];
 }
 
-+ (NSDate*)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day calendar:(NSCalendar*)calendar
++ (NSDate*)bl_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day calendar:(NSCalendar*)calendar
 {
     NSDateComponents* components = [[NSDateComponents alloc]  init];
     components.year = year;
@@ -105,14 +105,14 @@
     return [calendar dateFromComponents:components];
 }
 
-+ (NSDate*)today
++ (NSDate*)bl_today
 {
-    return [[NSDate date] startOfDay];
+    return [[NSDate date] bl_startOfDay];
 }
 
-+ (NSDate*)tomorrow
++ (NSDate*)bl_tomorrow
 {
-    NSDate* today = [NSDate today];
+    NSDate* today = [NSDate bl_today];
     
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     [comps setDay:1];
@@ -121,9 +121,9 @@
     return [calendar dateByAddingComponents:comps toDate:today options:0];
 }
 
-+ (NSDate*)yesterday
++ (NSDate*)bl_yesterday
 {
-    NSDate* today = [NSDate today];
+    NSDate* today = [NSDate bl_today];
     
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     [comps setDay:-1];
@@ -132,7 +132,7 @@
     return [calendar dateByAddingComponents:comps toDate:today options:0];
 }
 
-- (NSDate*)startOfDay
+- (NSDate*)bl_startOfDay
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSUInteger unitFlags = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSTimeZoneCalendarUnit);
@@ -140,22 +140,22 @@
     return [cal dateFromComponents:comps];
 }
 
-- (BOOL)isBefore:(NSDate *)date
+- (BOOL)bl_isBefore:(NSDate *)date
 {
     return self.timeIntervalSinceReferenceDate < date.timeIntervalSinceReferenceDate;
 }
 
-- (BOOL)isAfter:(NSDate *)date
+- (BOOL)bl_isAfter:(NSDate *)date
 {
     return self.timeIntervalSinceReferenceDate > date.timeIntervalSinceReferenceDate;
 }
 
-- (BOOL)isEqualOrBefore:(NSDate*)date
+- (BOOL)bl_isEqualOrBefore:(NSDate*)date
 {
     return self.timeIntervalSinceReferenceDate <= date.timeIntervalSinceReferenceDate;
 }
 
-- (BOOL)isEqualOrAfter:(NSDate*)date
+- (BOOL)bl_isEqualOrAfter:(NSDate*)date
 {
     return self.timeIntervalSinceReferenceDate >= date.timeIntervalSinceReferenceDate;
 }

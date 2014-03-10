@@ -10,23 +10,23 @@
 
 @interface UIImage (BowerLabsUIKit)
 
-+ (UIImage*)imageFromColor:(UIColor *)color;
++ (UIImage*)bl_imageFromColor:(UIColor *)color;
 
-+ (UIImage*)resizableImageNamed:(NSString*)imageName withCapInsets:(UIEdgeInsets)insets;
++ (UIImage*)bl_resizableImageNamed:(NSString*)imageName withCapInsets:(UIEdgeInsets)insets;
 
-- (UIImage*)squareImageWithSides:(CGFloat)sides;
-- (UIImage*)squareImageWithSides:(CGFloat)sides scale:(CGFloat)scale;
+- (UIImage*)bl_squareImageWithSides:(CGFloat)sides;
+- (UIImage*)bl_squareImageWithSides:(CGFloat)sides scale:(CGFloat)scale;
 
-- (UIImage*)scaleToSize:(CGSize)targetSize;
-- (UIImage*)scaleToSize:(CGSize)targetSize scale:(CGFloat)scale;
+- (UIImage*)bl_scaleToSize:(CGSize)targetSize;
+- (UIImage*)bl_scaleToSize:(CGSize)targetSize scale:(CGFloat)scale;
 
-- (UIImage*)scaleToMaxSide:(CGFloat)side;
-- (UIImage*)scaleToMaxSide:(CGFloat)side scale:(CGFloat)scale;
+- (UIImage*)bl_scaleToMaxSide:(CGFloat)side;
+- (UIImage*)bl_scaleToMaxSide:(CGFloat)side scale:(CGFloat)scale;
 
-- (UIImage*)fixOrientation;
+- (UIImage*)bl_fixOrientation;
 
-- (UIImage*)setRetinaScaleIfNeeded;
+- (UIImage*)bl_setRetinaScaleIfNeeded;
 
-- (UIImage *)rasterizedImageWithTintColor:(UIColor *)color;
+- (UIImage *)bl_rasterizedImageWithTintColor:(UIColor *)color;
 
 @end

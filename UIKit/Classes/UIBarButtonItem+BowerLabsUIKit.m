@@ -10,7 +10,7 @@
 
 @implementation UIBarButtonItem (BowerLabsUIKit)
 
-+ (UIBarButtonItem*)fixedSpace:(CGFloat)width
++ (UIBarButtonItem*)bl_fixedSpace:(CGFloat)width
 {
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace 
                                                                           target:nil 
@@ -19,7 +19,7 @@
     return item;
 }
 
-+ (UIBarButtonItem*)flexibleSpace
++ (UIBarButtonItem*)bl_flexibleSpace
 {
     return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 }

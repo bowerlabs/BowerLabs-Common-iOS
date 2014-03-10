@@ -10,6 +10,6 @@
 
 @interface NSDictionary (BowerLabsFoundation)
 
-- (NSDictionary*)dictionaryByMerging:(NSDictionary*)dictionary;
+- (NSDictionary*)bl_dictionaryByMerging:(NSDictionary*)dictionary;
 
 @end

@@ -12,7 +12,7 @@
 
 @implementation NSData (BowerLabsFoundation)
 
-- (NSString*)sha1
+- (NSString*)bl_sha1
 {
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     CC_SHA1(self.bytes, self.length, digest);
@@ -25,7 +25,7 @@
     return output;
 }
 
-- (NSString*)base64
+- (NSString*)bl_base64
 {
     // Modified from AFNetworking.
     NSUInteger length = [self length];

@@ -12,7 +12,7 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
 
 @implementation UIImage (BowerLabsUIKit)
 
-+ (UIImage*)imageFromColor:(UIColor *)color
++ (UIImage*)bl_imageFromColor:(UIColor *)color
 {
     CGRect rect = CGRectMake(0, 0, 1, 1);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
@@ -23,18 +23,18 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     return img;
 }
 
-+ (UIImage*)resizableImageNamed:(NSString*)imageName withCapInsets:(UIEdgeInsets)insets
++ (UIImage*)bl_resizableImageNamed:(NSString*)imageName withCapInsets:(UIEdgeInsets)insets
 {
     UIImage* image = [UIImage imageNamed:imageName];
     return [image resizableImageWithCapInsets:insets];
 }
 
-- (UIImage*)squareImageWithSides:(CGFloat)sides
+- (UIImage*)bl_squareImageWithSides:(CGFloat)sides
 {
-    return [self squareImageWithSides:sides scale:self.scale];
+    return [self bl_squareImageWithSides:sides scale:self.scale];
 }
 
-- (UIImage*)squareImageWithSides:(CGFloat)sides scale:(CGFloat)scale
+- (UIImage*)bl_squareImageWithSides:(CGFloat)sides scale:(CGFloat)scale
 {
     UIImage* sourceImage = self;
     
@@ -66,12 +66,12 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     return newImage;
 }
 
-- (UIImage*)scaleToSize:(CGSize)targetSize
+- (UIImage*)bl_scaleToSize:(CGSize)targetSize
 {
-    return [self scaleToSize:targetSize scale:self.scale];
+    return [self bl_scaleToSize:targetSize scale:self.scale];
 }
 
-- (UIImage*)scaleToSize:(CGSize)targetSize scale:(CGFloat)scale
+- (UIImage*)bl_scaleToSize:(CGSize)targetSize scale:(CGFloat)scale
 {
     UIImage* sourceImage = self;
     
@@ -97,12 +97,12 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     return newImage;
 }
 
-- (UIImage*)scaleToMaxSide:(CGFloat)side
+- (UIImage*)bl_scaleToMaxSide:(CGFloat)side
 {
-    return [self scaleToMaxSide:side scale:self.scale];
+    return [self bl_scaleToMaxSide:side scale:self.scale];
 }
 
-- (UIImage*)scaleToMaxSide:(CGFloat)side scale:(CGFloat)scale
+- (UIImage*)bl_scaleToMaxSide:(CGFloat)side scale:(CGFloat)scale
 {
     UIImage* sourceImage = self;
     if (MAX(sourceImage.size.width, sourceImage.size.height) <= side) {
@@ -135,7 +135,7 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     return newImage;
 }
 
-- (UIImage *)fixOrientation
+- (UIImage *)bl_fixOrientation
 {
     // No-op if the orientation is already correct
     if (self.imageOrientation == UIImageOrientationUp) return self;
@@ -219,7 +219,7 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
     return img;
 }
 
-- (UIImage*)setRetinaScaleIfNeeded
+- (UIImage*)bl_setRetinaScaleIfNeeded
 {
     if (self.scale == [UIScreen mainScreen].scale) {
         return self;
@@ -230,7 +230,7 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
                          orientation:self.imageOrientation];
 }
 
-- (UIImage *)rasterizedImageWithTintColor:(UIColor *)color
+- (UIImage *)bl_rasterizedImageWithTintColor:(UIColor *)color
 {
     NSParameterAssert(!CGSizeEqualToSize(self.size, CGSizeZero));
     if (self.renderingMode != UIImageRenderingModeAlwaysTemplate) {

@@ -17,10 +17,10 @@
 typedef void(^BLMainThreadBlock)();
 typedef void(^BLBackgroundBlock)();
 
-BLExternC void performOnMainThread(BLMainThreadBlock block);
-BLExternC void performOnMainThreadLater(BLMainThreadBlock block);
-BLExternC void performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock block);
-BLExternC void performOnMainThreadAndWait(BLMainThreadBlock block);
+BLExternC void bl_performOnMainThread(BLMainThreadBlock block);
+BLExternC void bl_performOnMainThreadLater(BLMainThreadBlock block);
+BLExternC void bl_performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock block);
+BLExternC void bl_performOnMainThreadAndWait(BLMainThreadBlock block);
 
-BLExternC void performInBackground(BLBackgroundBlock);
-BLExternC void performInBackgroundAfterDelay(NSTimeInterval delay, BLBackgroundBlock block);
+BLExternC void bl_performInBackground(BLBackgroundBlock);
+BLExternC void bl_performInBackgroundAfterDelay(NSTimeInterval delay, BLBackgroundBlock block);

@@ -11,7 +11,7 @@
 #import "BLKeyValueObserverForNSObjectOnly.h"
 #import "BLOperationHelpers.h"
 
-id nullForNil(id value)
+id bl_nullForNil(id value)
 {
     if (value == nil) {
         return [NSNull null];
@@ -34,7 +34,7 @@ id nullForNil(id value)
     return nil;
 }
 
-- (id)nilForNull
+- (id)bl_nilForNull
 {
     return ([self isMemberOfClass:[NSNull class]] ? nil : self);
 }
@@ -55,22 +55,22 @@ id nullForNil(id value)
     return sharedObserverMapTable;
 }
 
-- (id)addObserverForKeyPath:(NSString*)keyPath
-                    options:(NSKeyValueObservingOptions)options
-                      block:(BLKeyValueObserverBlock)block
+- (id)bl_addObserverForKeyPath:(NSString*)keyPath
+                       options:(NSKeyValueObservingOptions)options
+                         block:(BLKeyValueObserverBlock)block
 {
     __block id observerRef = nil;
-    [self addObserverForKeyPath:keyPath options:options startup:^(__weak id weakSelf, id ref) {
+    [self bl_addObserverForKeyPath:keyPath options:options startup:^(__weak id weakSelf, id ref) {
         observerRef = ref;
     } observer:block];
     
     return observerRef;
 }
 
-- (void)addObserverForKeyPath:(NSString*)keyPath
-                      options:(NSKeyValueObservingOptions)options
-                      startup:(BLKeyValueStartupBlock)startupBlock
-                     observer:(BLKeyValueObserverBlock)observerBlock
+- (void)bl_addObserverForKeyPath:(NSString*)keyPath
+                         options:(NSKeyValueObservingOptions)options
+                         startup:(BLKeyValueStartupBlock)startupBlock
+                        observer:(BLKeyValueObserverBlock)observerBlock
 {
     // Create the observer.
     BLKeyValueObserver* observerRef = [[BLKeyValueObserver alloc] init];
@@ -99,7 +99,7 @@ id nullForNil(id value)
     }
 }
 
-- (void)removeObserver:(BLKeyValueObserver*)observerRef
+- (void)bl_removeObserver:(BLKeyValueObserver*)observerRef
 {
     // Check for an observer ref.
     if (observerRef) {
@@ -120,7 +120,7 @@ id nullForNil(id value)
     }
 }
 
-- (void)removeAllObservers
+- (void)bl_removeAllObservers
 {
     // Synchronize.
     NSMapTable* mapTable = [NSObject sharedObserverMapTable];

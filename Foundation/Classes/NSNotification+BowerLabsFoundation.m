@@ -10,7 +10,7 @@
 
 @implementation NSNotification (BowerLabsFoundation)
 
-- (CGFloat)keyboardHeight 
+- (CGFloat)bl_keyboardHeight
 {
     NSValue *value = [self.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     if (value) {
@@ -23,7 +23,7 @@
     }
 }
 
-- (CGFloat)keyboardHeightForOrientation:(UIInterfaceOrientation)orientation
+- (CGFloat)bl_keyboardHeightForOrientation:(UIInterfaceOrientation)orientation
 {
     NSValue *value = [self.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     if (value) {
@@ -38,7 +38,7 @@
     }
 }
 
-- (NSTimeInterval)keyboardAnimationDuration
+- (NSTimeInterval)bl_keyboardAnimationDuration
 {
     NSValue* value = [self.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     if (value) {

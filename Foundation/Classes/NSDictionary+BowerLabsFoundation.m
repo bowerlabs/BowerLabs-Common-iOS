@@ -10,7 +10,7 @@
 
 @implementation NSDictionary (BowerLabsFoundation)
 
-- (NSDictionary*)dictionaryByMerging:(NSDictionary*)dictionary
+- (NSDictionary*)bl_dictionaryByMerging:(NSDictionary*)dictionary
 {
     NSMutableDictionary* mergedDictionary = [NSMutableDictionary dictionaryWithDictionary:self];
     [mergedDictionary addEntriesFromDictionary:dictionary];

@@ -10,8 +10,8 @@
 
 @interface NSData (BowerLabsFoundation)
 
-- (NSString*)sha1;
+- (NSString*)bl_sha1;
 
-- (NSString*)base64;
+- (NSString*)bl_base64;
 
 @end

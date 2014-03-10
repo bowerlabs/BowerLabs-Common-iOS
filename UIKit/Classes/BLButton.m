@@ -87,7 +87,7 @@
             CGFloat const imageViewH = imageSize.height;
             CGFloat const additionalMargin = ceil((self.bl_buttonAlignmentMaxImageDimension - imageViewH) / 2);
             CGFloat const imageViewX = floor((self.bounds.size.width - imageViewW) / 2);
-            CGFloat const imageViewY = titleLabelX - imageViewH - additionalMargin - self.bl_buttonAlignmentMargin;
+            CGFloat const imageViewY = titleLabelY - imageViewH - additionalMargin - self.bl_buttonAlignmentMargin;
             self.imageView.frame = CGRectMake(imageViewX, imageViewY, imageViewW, imageViewH);
             
             break;
