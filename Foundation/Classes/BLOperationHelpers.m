@@ -37,7 +37,7 @@ void bl_performOnMainThreadAfterDelay(NSTimeInterval delay, BLMainThreadBlock bl
         return;
     }
     
-    dispatch_after(delay * NSEC_PER_SEC, dispatch_get_main_queue(), block);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC), dispatch_get_main_queue(), block);
 }
 
 void bl_performOnMainThreadAndWait(BLMainThreadBlock block)
@@ -80,5 +80,5 @@ void bl_performInBackgroundAfterDelay(NSTimeInterval delay, BLBackgroundBlock bl
         return;
     }
     
-    dispatch_after(delay * NSEC_PER_SEC, bl_backgroundQueue(), block);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC), bl_backgroundQueue(), block);
 }
