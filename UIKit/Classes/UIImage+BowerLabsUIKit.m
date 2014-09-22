@@ -8,8 +8,6 @@
 
 #import "UIImage+BowerLabsUIKit.h"
 
-static inline double radians (double degrees) {return degrees * M_PI/180;}
-
 @implementation UIImage (BowerLabsUIKit)
 
 + (UIImage*)bl_imageFromColor:(UIColor *)color

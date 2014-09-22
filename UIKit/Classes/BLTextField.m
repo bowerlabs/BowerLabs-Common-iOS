@@ -37,7 +37,14 @@
         }
         else {
             [self.placeholderColor setFill];
-            [self.placeholder drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByClipping alignment:self.textAlignment];
+            
+            NSMutableParagraphStyle* paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineBreakMode = NSLineBreakByClipping;
+            paragraphStyle.alignment = self.textAlignment;
+            
+            NSDictionary* attributes = @{ NSFontAttributeName: self.font,
+                                          NSParagraphStyleAttributeName: paragraphStyle };
+            [self.placeholder drawInRect:rect withAttributes:attributes];
         }
     }
     else {
