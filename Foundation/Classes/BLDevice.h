@@ -8,44 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-// Detect the larger iPhone.
-inline static BOOL BLFoundationIsIPhone5()
-{
-    static dispatch_once_t once;
-    static BOOL isIPhone5;
-    dispatch_once(&once, ^{
-        isIPhone5 = (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES);
-    });
-    return isIPhone5;
-}
-
-// Detect iOS 7.
-inline static BOOL BLFoundationIsIOS7OrLater()
-{
-    static dispatch_once_t once;
-    static BOOL isIOS7OrLater;
-    dispatch_once(&once, ^{
-        isIOS7OrLater = ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0);
-    });
-    return isIOS7OrLater;
-}
-
-// Detect iPad.
-inline static BOOL BLFoundationIsIPad()
-{
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+#if !defined(__cplusplus)
+#define BLDeviceExternC extern
 #else
-    return NO;
+#define BLDeviceExternC extern "C"
 #endif
-}
 
-// Detect iPhone
-inline static BOOL BLFoundationIsIPhone()
-{
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
-#else
-    return YES;
-#endif
-}
+BLDeviceExternC BOOL BLFoundationIsIPhone5();
+BLDeviceExternC BOOL BLFoundationIsIOS7OrLater();
+BLDeviceExternC BOOL BLFoundationIsIOS8OrLater();
+BLDeviceExternC BOOL BLFoundationIsIPad();
+BLDeviceExternC BOOL BLFoundationIsIPhone();

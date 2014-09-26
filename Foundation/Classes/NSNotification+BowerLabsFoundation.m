@@ -8,6 +8,8 @@
 
 #import "NSNotification+BowerLabsFoundation.h"
 
+#import "BLDevice.h"
+
 @implementation NSNotification (BowerLabsFoundation)
 
 - (CGFloat)bl_keyboardHeight
@@ -29,9 +31,14 @@
     if (value) {
         CGRect frame = CGRectZero;
         [value getValue:&frame];
-        return (UIInterfaceOrientationIsPortrait(orientation) ?
-                frame.size.height :
-                frame.size.width);
+        if (BLFoundationIsIOS8OrLater()) {
+            return frame.size.height;
+        }
+        else {
+            return (UIInterfaceOrientationIsPortrait(orientation) ?
+                    frame.size.height :
+                    frame.size.width);
+        }
     }
     else {
         return 0;

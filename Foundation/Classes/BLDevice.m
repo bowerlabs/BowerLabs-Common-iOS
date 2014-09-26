@@ -8,3 +8,57 @@
 
 #import "BLDevice.h"
 
+#import <UIKit/UIKit.h>
+
+// Detect the larger iPhone.
+BOOL BLFoundationIsIPhone5()
+{
+    static dispatch_once_t once;
+    static BOOL isIPhone5;
+    dispatch_once(&once, ^{
+        isIPhone5 = (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES);
+    });
+    return isIPhone5;
+}
+
+// Detect iOS 7.
+BOOL BLFoundationIsIOS7OrLater()
+{
+    static dispatch_once_t once;
+    static BOOL isIOS7OrLater;
+    dispatch_once(&once, ^{
+        isIOS7OrLater = ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0);
+    });
+    return isIOS7OrLater;
+}
+
+// Detect iOS 8.
+BOOL BLFoundationIsIOS8OrLater()
+{
+    static dispatch_once_t once;
+    static BOOL isIOS8OrLater;
+    dispatch_once(&once, ^{
+        isIOS8OrLater = ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0);
+    });
+    return isIOS8OrLater;
+}
+
+// Detect iPad.
+BOOL BLFoundationIsIPad()
+{
+#ifdef UI_USER_INTERFACE_IDIOM
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+#else
+    return NO;
+#endif
+}
+
+// Detect iPhone
+BOOL BLFoundationIsIPhone()
+{
+#ifdef UI_USER_INTERFACE_IDIOM
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
+#else
+    return YES;
+#endif
+}
