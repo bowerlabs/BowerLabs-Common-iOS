@@ -29,4 +29,7 @@
 
 - (UIImage *)bl_rasterizedImageWithTintColor:(UIColor *)color;
 
+- (NSData *)bl_jpegRepresentationWithQuality:(CGFloat)quality
+                                    metadata:(NSDictionary *)metadata;
+
 @end

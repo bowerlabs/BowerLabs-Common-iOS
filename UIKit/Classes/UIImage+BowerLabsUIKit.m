@@ -8,6 +8,9 @@
 
 #import "UIImage+BowerLabsUIKit.h"
 
+#import <ImageIO/ImageIO.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
 @implementation UIImage (BowerLabsUIKit)
 
 + (UIImage*)bl_imageFromColor:(UIColor *)color
@@ -242,5 +245,30 @@
     UIGraphicsEndImageContext();
     return rasterizedImage;
 }
+
+- (NSData *)bl_jpegRepresentationWithQuality:(CGFloat)quality
+                                    metadata:(NSDictionary *)metadata
+{
+    NSMutableData *imageData = [NSMutableData dataWithCapacity:0];
+    NSMutableDictionary *imageProps = [metadata mutableCopy];
+    CGImageDestinationRef dest = CGImageDestinationCreateWithData((__bridge CFMutableDataRef )imageData, kUTTypeJPEG, 1, nil);
+
+    if (imageProps == nil) {
+        imageProps = [NSMutableDictionary dictionaryWithCapacity:1];
+    }
+
+    [imageProps setObject:@(quality) forKey:(__bridge NSString *)kCGImageDestinationLossyCompressionQuality];
+
+    CGImageDestinationAddImage(dest, self.CGImage, (__bridge CFDictionaryRef )imageProps);
+
+    if (!CGImageDestinationFinalize(dest)) {
+        imageData = nil;
+    }
+
+    CFRelease(dest);
+
+    return imageData;
+}
+
 
 @end
