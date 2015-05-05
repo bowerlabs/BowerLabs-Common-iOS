@@ -10,17 +10,6 @@
 
 #import <UIKit/UIKit.h>
 
-// Detect the larger iPhone.
-BOOL BLFoundationIsIPhone5()
-{
-    static dispatch_once_t once;
-    static BOOL isIPhone5;
-    dispatch_once(&once, ^{
-        isIPhone5 = (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES);
-    });
-    return isIPhone5;
-}
-
 // Detect iOS 7.
 BOOL BLFoundationIsIOS7OrLater()
 {

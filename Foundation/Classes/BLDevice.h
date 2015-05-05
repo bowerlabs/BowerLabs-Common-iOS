@@ -14,7 +14,6 @@
 #define BLDeviceExternC extern "C"
 #endif
 
-BLDeviceExternC BOOL BLFoundationIsIPhone5();
 BLDeviceExternC BOOL BLFoundationIsIOS7OrLater();
 BLDeviceExternC BOOL BLFoundationIsIOS8OrLater();
 BLDeviceExternC BOOL BLFoundationIsIPad();
