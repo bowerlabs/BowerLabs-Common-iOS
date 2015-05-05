@@ -46,19 +46,21 @@ BOOL BLFoundationIsIOS8OrLater()
 // Detect iPad.
 BOOL BLFoundationIsIPad()
 {
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-#else
-    return NO;
-#endif
+    static dispatch_once_t once;
+    static BOOL isIPad;
+    dispatch_once(&once, ^{
+        isIPad = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+    });
+    return isIPad;
 }
 
 // Detect iPhone
 BOOL BLFoundationIsIPhone()
 {
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
-#else
-    return YES;
-#endif
+    static dispatch_once_t once;
+    static BOOL isIPhone;
+    dispatch_once(&once, ^{
+        isIPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
+    });
+    return isIPhone;
 }
