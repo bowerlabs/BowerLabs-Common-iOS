@@ -49,7 +49,8 @@
         
         components.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
         
-        NSCalendar *calendar = [NSCalendar currentCalendar];
+        // Create a calendar to avoid using the currentCalendar on different threads.
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
         return [calendar dateFromComponents:components];
     }
     
@@ -82,7 +83,8 @@
         NSInteger offsetSeconds = offsetSign * ((offsetHoursComponent * 60 * 60) + (offsetMinutesComponent * 60));
         components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:offsetSeconds];
         
-        NSCalendar *calendar = [NSCalendar currentCalendar];
+        // Create a calendar to avoid using the currentCalendar on different threads.
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
         return [calendar dateFromComponents:components];
     }
     
@@ -91,7 +93,8 @@
 
 + (NSDate*)bl_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
     return [self bl_dateWithYear:year month:month day:day calendar:calendar];
 }
 
@@ -117,7 +120,8 @@
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     [comps setDay:1];
     
-    NSCalendar *calendar = [NSCalendar currentCalendar];
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
     return [calendar dateByAddingComponents:comps toDate:today options:0];
 }
 
@@ -128,16 +132,63 @@
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     [comps setDay:-1];
     
-    NSCalendar *calendar = [NSCalendar currentCalendar];
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
     return [calendar dateByAddingComponents:comps toDate:today options:0];
+}
+
+- (NSDate*)bl_startOfYear
+{
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
+    NSUInteger unitFlags = (NSCalendarUnitYear | NSTimeZoneCalendarUnit);
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:self];
+    return [calendar dateFromComponents:comps];
+}
+
+- (NSDate*)bl_startOfMonth
+{
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
+    NSUInteger unitFlags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSTimeZoneCalendarUnit);
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:self];
+    return [calendar dateFromComponents:comps];
 }
 
 - (NSDate*)bl_startOfDay
 {
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSUInteger unitFlags = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSTimeZoneCalendarUnit);
-    NSDateComponents *comps = [cal components:unitFlags fromDate:self];
-    return [cal dateFromComponents:comps];
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
+    NSUInteger unitFlags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSTimeZoneCalendarUnit);
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:self];
+    return [calendar dateFromComponents:comps];
+}
+
+- (NSDate*)bl_startOfHour
+{
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
+    NSUInteger unitFlags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSTimeZoneCalendarUnit);
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:self];
+    return [calendar dateFromComponents:comps];
+}
+
+- (NSDate*)bl_startOfMinute
+{
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
+    NSUInteger unitFlags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSTimeZoneCalendarUnit);
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:self];
+    return [calendar dateFromComponents:comps];
+}
+
+- (NSDate*)bl_startOfSecond
+{
+    // Create a calendar to avoid using the currentCalendar on different threads.
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:[NSCalendar currentCalendar].calendarIdentifier];
+    NSUInteger unitFlags = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSTimeZoneCalendarUnit);
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:self];
+    return [calendar dateFromComponents:comps];
 }
 
 - (BOOL)bl_isBefore:(NSDate *)date

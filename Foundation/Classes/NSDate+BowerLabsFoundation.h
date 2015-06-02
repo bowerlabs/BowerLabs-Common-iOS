@@ -22,7 +22,17 @@
 
 + (NSDate*)bl_yesterday;
 
+- (NSDate*)bl_startOfYear;
+
+- (NSDate*)bl_startOfMonth;
+
 - (NSDate*)bl_startOfDay;
+
+- (NSDate*)bl_startOfHour;
+
+- (NSDate*)bl_startOfMinute;
+
+- (NSDate*)bl_startOfSecond;
 
 - (BOOL)bl_isBefore:(NSDate *)date;
 
