@@ -1,16 +1,16 @@
 Pod::Spec.new do |s|
   s.name     = 'BowerLabs'
-  s.version  = '1.1.2'
+  s.version  = '1.2.0'
   s.platform = :ios
   s.license  = 'MIT'
   s.summary  = 'Common frameworks used by Bower Labs projects.'
   s.homepage = 'https://github.com/bowerlabs/BowerLabs-Common-iOS'
   s.author   = { 'Jeremy Bower' => 'jeremy@bowerlabs.com' }
   s.source   = { :git    => 'https://github.com/bowerlabs/BowerLabs-Common-iOS.git',
-                 :tag => '1.1.2' }
+                 :tag => '1.2.0' }
                  
   s.requires_arc = true
-  s.ios.deployment_target = '7.1'
+  s.ios.deployment_target = '8.3'
   
   s.default_subspec = 'Foundation'
 
