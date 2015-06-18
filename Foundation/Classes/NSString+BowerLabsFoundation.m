@@ -176,7 +176,7 @@ BLPhoneNumberFormatOptions const BLPhoneNumberFormatOptionDefault =
 
 - (NSDate*)bl_dateValue
 {
-    return [NSDate bl_dateWithRFCFormattedString:self];
+    return [NSDate bl_dateWithISO8601FormattedString:self];
 }
 
 - (NSNumber*)bl_numberValue

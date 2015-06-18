@@ -10,7 +10,9 @@
 
 @interface NSDate (BowerLabsFoundation)
 
-+ (NSDate*)bl_dateWithRFCFormattedString:(NSString*)value;
++ (NSDate*)bl_dateWithRFCFormattedString:(NSString*)value DEPRECATED_MSG_ATTRIBUTE("Use bl_dateWithISO8601FormattedString: instead");
+
++ (NSDate*)bl_dateWithISO8601FormattedString:(NSString*)value;
 
 + (NSDate*)bl_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
@@ -21,6 +23,8 @@
 + (NSDate*)bl_tomorrow;
 
 + (NSDate*)bl_yesterday;
+
+- (NSString*)bl_stringWithISO8601Format;
 
 - (NSDate*)bl_startOfYear;
 
