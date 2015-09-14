@@ -16,5 +16,6 @@
 
 BLDeviceExternC BOOL BLFoundationIsIOS7OrLater();
 BLDeviceExternC BOOL BLFoundationIsIOS8OrLater();
+BLDeviceExternC BOOL BLFoundationIsIOS9OrLater();
 BLDeviceExternC BOOL BLFoundationIsIPad();
 BLDeviceExternC BOOL BLFoundationIsIPhone();

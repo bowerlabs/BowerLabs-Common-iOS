@@ -10,6 +10,11 @@
 
 @implementation NSDate (BowerLabsFoundation)
 
++ (NSDate*)bl_dateWithRFCFormattedString:(NSString*)value
+{
+    return [NSDate bl_dateWithISO8601FormattedString:value];
+}
+
 + (NSDate*)bl_dateWithISO8601FormattedString:(NSString*)value
 {
     if (!value) {

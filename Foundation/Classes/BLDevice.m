@@ -32,6 +32,17 @@ BOOL BLFoundationIsIOS8OrLater()
     return isIOS8OrLater;
 }
 
+// Detect iOS 9.
+BOOL BLFoundationIsIOS9OrLater()
+{
+    static dispatch_once_t once;
+    static BOOL isIOS9OrLater;
+    dispatch_once(&once, ^{
+        isIOS9OrLater = ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0);
+    });
+    return isIOS9OrLater;
+}
+
 // Detect iPad.
 BOOL BLFoundationIsIPad()
 {
