@@ -23,4 +23,16 @@
     return [UIColor colorWithRed:r green:g blue:b alpha:alpha];
 }
 
++ (UIColor*)bl_colorWithHexString:(NSString *)stringValue alpha:(CGFloat)alpha
+{
+    NSScanner *scanner = [NSScanner scannerWithString:stringValue];
+    unsigned hexValue = 0;
+
+    if ([stringValue hasPrefix:@"#"]) {
+        scanner.scanLocation = 1;
+    }
+
+    return [scanner scanHexInt:&hexValue] ? [self bl_colorWithHex:hexValue alpha:alpha] : nil;
+}
+
 @end

@@ -12,5 +12,6 @@
 
 + (UIColor*)bl_colorWithIntegerRed:(NSInteger)r green:(NSInteger)g blue:(NSInteger)b alpha:(CGFloat)a;
 + (UIColor*)bl_colorWithHex:(NSInteger)hex alpha:(CGFloat)alpha;
++ (UIColor*)bl_colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
 
 @end
