@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'BowerLabs'
-  s.version  = '1.5.0'
+  s.version  = '1.5.2'
   s.platform = :ios
   s.license  = 'MIT'
   s.summary  = 'Common frameworks used by Bower Labs projects.'
