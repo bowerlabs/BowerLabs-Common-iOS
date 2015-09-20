@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                  :tag => s.version.to_s }
                  
   s.requires_arc = true
-  s.ios.deployment_target = '8.3'
+  s.ios.deployment_target = '8.1'
   
   s.default_subspec = 'Foundation'
 
