@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'Common-iOS'
-  s.version  = '1.5.2'
+  s.version  = '1.6.1'
   s.platform = :ios
   s.license  = 'MIT'
   s.summary  = 'Common additions to the UIKit and Foundation frameworks used by Power Home iOS projects.'

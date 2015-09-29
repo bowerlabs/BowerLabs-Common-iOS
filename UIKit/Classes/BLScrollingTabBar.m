@@ -8,8 +8,6 @@
 
 #import "BLScrollingTabBar.h"
 
-#import <BowerLabs/BowerLabsFoundation.h>
-
 NSString* const BLScrollingTabBarDidSelectItemNotification = @"BLScrollingTabBarDidSelectItemNotification";
 NSString* const BLScrollingTabBarItemKeyName = @"BLScrollingTabBarItemKeyName";
 
